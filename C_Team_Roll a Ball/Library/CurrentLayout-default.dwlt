@@ -152,6 +152,7 @@ MonoBehaviour:
     y: 30
     width: 1536
     height: 731
+<<<<<<< HEAD
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
@@ -180,6 +181,13 @@ MonoBehaviour:
 >>>>>>> fcaccfd29c30147ea4dc823b6312a56dc6fdc648
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
 --- !u!114 &6
+=======
+  m_MinSize: {x: 881, y: 492}
+  m_MaxSize: {x: 16006, y: 14042}
+  vertical: 0
+  controlID: 56
+--- !u!114 &7
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -202,6 +210,7 @@ MonoBehaviour:
 <<<<<<< HEAD
     width: 1146
     height: 731
+<<<<<<< HEAD
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
@@ -218,6 +227,13 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
 >>>>>>> fcaccfd29c30147ea4dc823b6312a56dc6fdc648
 --- !u!114 &7
+=======
+  m_MinSize: {x: 605, y: 492}
+  m_MaxSize: {x: 12005, y: 14042}
+  vertical: 1
+  controlID: 57
+--- !u!114 &8
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,6 +253,7 @@ MonoBehaviour:
 <<<<<<< HEAD
     width: 1146
     height: 460
+<<<<<<< HEAD
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
@@ -253,6 +270,13 @@ MonoBehaviour:
   m_LastLoadedLayoutName: 
 >>>>>>> fcaccfd29c30147ea4dc823b6312a56dc6fdc648
 --- !u!114 &8
+=======
+  m_MinSize: {x: 605, y: 221}
+  m_MaxSize: {x: 12005, y: 4021}
+  vertical: 0
+  controlID: 58
+--- !u!114 &9
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,6 +342,7 @@ MonoBehaviour:
 <<<<<<< HEAD
     width: 940
     height: 460
+<<<<<<< HEAD
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
 <<<<<<< HEAD
@@ -326,6 +351,10 @@ MonoBehaviour:
   - {fileID: 14}
   - {fileID: 12}
 =======
+=======
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
   m_ActualView: {fileID: 15}
   m_Panes:
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
@@ -641,10 +670,14 @@ MonoBehaviour:
       m_SelectedIDs: 
       m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
       m_ExpandedIDs: 6efbffff
 =======
       m_ExpandedIDs: 72fbffff
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
+=======
+      m_ExpandedIDs: 5efbffff6e330000d6330000
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -717,6 +750,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_Position:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 1.4318867, y: 2.029478, z: -5.0705338}
     speed: 2
     m_Value: {x: 1.4318867, y: 2.029478, z: -5.0705338}
@@ -725,6 +759,11 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 7.191103, y: 7.6523848, z: -1.9911687}
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
+=======
+    m_Target: {x: -1.7949686, y: 1.8481865, z: 7.079548}
+    speed: 2
+    m_Value: {x: -1.7949686, y: 1.8481865, z: 7.079548}
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -771,6 +810,7 @@ MonoBehaviour:
     m_gridOpacity: 0.5
   m_Rotation:
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_Target: {x: 0.19445255, y: -0.69489443, z: 0.20426539, w: 0.66151774}
     speed: 2
     m_Value: {x: 0.19383694, y: -0.69686884, z: 0.20484576, w: 0.6594235}
@@ -787,6 +827,15 @@ MonoBehaviour:
     speed: 2
     m_Value: 38.98832
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
+=======
+    m_Target: {x: 0.17073254, y: -0.20612368, z: 0.03655154, w: 0.96282834}
+    speed: 2
+    m_Value: {x: 0.1707316, y: -0.20612255, z: 0.036551338, w: 0.96282303}
+  m_Size:
+    m_Target: 31.994661
+    speed: 2
+    m_Value: 31.994661
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -929,7 +978,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -2298
+  m_LastSelectedObjectID: 13194
 --- !u!114 &19
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -982,11 +1031,19 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets
+=======
+    - Assets/Physic Material
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Physic Material
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
   m_LastFoldersGridSize: -1
   m_LastProjectPath: "D:\\\u6388\u696D\\2\u5E74\u6B21\\\u4F5C\u54C1\u5236\u4F5C\\\u30B3\u30F3\u30DA\u30C6\u30A3\u30B7\u30E7\u30F3\\GitHub_CTeam\\C_Team_Roll
     a Ball"
@@ -994,6 +1051,7 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
     m_SelectedIDs: 20340000
     m_LastClickedID: 13344
@@ -1015,6 +1073,11 @@ MonoBehaviour:
 >>>>>>> 970e9a6f07e71911fd8b4f775e585afea21c807b
 >>>>>>> fcaccfd29c30147ea4dc823b6312a56dc6fdc648
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
+=======
+    m_SelectedIDs: 2c340000
+    m_LastClickedID: 13356
+    m_ExpandedIDs: 000000002434000000ca9a3b
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1043,6 +1106,7 @@ MonoBehaviour:
     m_SelectedIDs: 
     m_LastClickedID: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_ExpandedIDs: 0000000020340000
 =======
 <<<<<<< HEAD
@@ -1055,6 +1119,9 @@ MonoBehaviour:
 >>>>>>> 970e9a6f07e71911fd8b4f775e585afea21c807b
 >>>>>>> fcaccfd29c30147ea4dc823b6312a56dc6fdc648
 >>>>>>> cea5269c639dc26f2863d7fbd28afd7b6f8edda5
+=======
+    m_ExpandedIDs: 0000000024340000
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1190,8 +1257,12 @@ MonoBehaviour:
   m_PreviewWindow: {fileID: 0}
   m_LastInspectedObjectInstanceID: -1
   m_LastVerticalScrollValue: 0
+<<<<<<< HEAD
 --- !u!114 &16
 >>>>>>> fcaccfd29c30147ea4dc823b6312a56dc6fdc648
+=======
+--- !u!114 &22
+>>>>>>> 941728230c6c9c3855cf2949cf61f7a60f0f1763
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
