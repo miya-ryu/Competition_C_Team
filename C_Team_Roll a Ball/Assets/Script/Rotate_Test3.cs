@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Rotate_Test3 : MonoBehaviour
 {
-	//加速したのち終端する、目的の速度
-	public float target_kmph_ = 100f;
+    //加速したのち終端する、目的の速度
+    public float target_kmph_ = 100f;
 
     // Use this for initialization
     void FixedUpdate()
@@ -98,12 +98,12 @@ public class Rotate_Test3 : MonoBehaviour
         /*x軸方向の水平を保つ*/
         var left = transform.TransformVector(Vector3.left); //機体の左を向くベクトルを、ローカル→ワールド座標に変換する！
         var horizontal_left = new Vector3(left.x, 0f, left.z).normalized;   //上で求めたベクトルをx-z平面（水平）上のベクトルに補正し、単位ベクトルにする。
-        rb.AddTorque(Vector3.Cross(left, horizontal_left)*5);    //外積を取る。傾いているほど大きいトルク。（ばねのように）
+        rb.AddTorque(Vector3.Cross(left, horizontal_left)*5f);    //外積を取る。傾いているほど大きいトルク。（ばねのように）
 
         /*機体から見てz軸方向にも水平を保つ。*/
         var forward = transform.TransformVector(Vector3.forward);
         var horizontal_forward = new Vector3(forward.x, 0f, forward.z).normalized;
-        rb.AddTorque(Vector3.Cross(forward, horizontal_forward)*5);
+        rb.AddTorque(Vector3.Cross(forward, horizontal_forward)*5f);
 
         ///*機体を前に発進させるエンジン*/
         //var force = (rb.mass * rb.drag * target_kmph_ / 3.6f) / (1f - rb.drag * Time.fixedDeltaTime);   //ある終端そくどに向かうための力を求める！
