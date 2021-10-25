@@ -54,23 +54,23 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11150}
+      Script: {instanceID: 11152}
     - Class: 114
-      Script: {instanceID: 11306}
+      Script: {instanceID: 11308}
     - Class: 114
-      Script: {instanceID: 11346}
+      Script: {instanceID: 11348}
     - Class: 114
-      Script: {instanceID: 11496}
+      Script: {instanceID: 11498}
     - Class: 114
-      Script: {instanceID: 11730}
+      Script: {instanceID: 11732}
     - Class: 114
-      Script: {instanceID: 12580}
+      Script: {instanceID: 12582}
     - Class: 114
-      Script: {instanceID: 12636}
+      Script: {instanceID: 12638}
     - Class: 114
-      Script: {instanceID: 12930}
+      Script: {instanceID: 12932}
     - Class: 114
-      Script: {instanceID: 12982}
+      Script: {instanceID: 12984}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -533,4 +533,5 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: "D:/Competition_C_\u30D3\u30EB\u30C9/2-4_C_Team/C_Team_Roll a Ball.exe"
+  playerPath: "D:/Competition_C_\u30D3\u30EB\u30C9/\u30C6\u30B9\u30C8/C_Team_Roll
+    a Ball.exe"
