@@ -54,15 +54,15 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11152}
+      Script: {instanceID: 11150}
     - Class: 114
-      Script: {instanceID: 11308}
+      Script: {instanceID: 11306}
     - Class: 114
-      Script: {instanceID: 11348}
+      Script: {instanceID: 11346}
     - Class: 114
-      Script: {instanceID: 11498}
+      Script: {instanceID: 11496}
     - Class: 114
-      Script: {instanceID: 11732}
+      Script: {instanceID: 11730}
     - Class: 114
       Script: {instanceID: 12582}
     - Class: 114
@@ -386,6 +386,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: TimelineAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Box_C
   - hash:
       serializedVersion: 2
       Hash: 3b760e6526e13f7504f59e210145899a

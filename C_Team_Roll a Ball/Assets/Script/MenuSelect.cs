@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class MenuSelect : MonoBehaviour {
 
     int number = 0;
+
+    private float Trigger;
     void Quit()
     {
 #if UNITY_EDITOR
@@ -22,29 +24,31 @@ public class MenuSelect : MonoBehaviour {
         // 座標を取得
         Vector3 pos = myTransform.position;
 
-        if (0 < Input.GetAxisRaw("Vertical"))
-        {
-            number++;
-            pos.y -= 22;
-
-            if (number > 2)
-            {
-                number = 0;
-                pos.y += 3 * 22;
-            }
-        }
-        if (Input.GetAxisRaw("Vertical") < 0)
+        if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             number--;
-            pos.y += 22;
+            pos.y += 45;
 
             if (number < 0)
             {
                 number = 2;
-                pos.y -= 3 * 22;
+                pos.y -= 3 * 45;
+            }
+        }
+        if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
+        {
+            number++;
+            pos.y -= 45;
+
+            if (number > 2)
+            {
+                number = 0;
+                pos.y += 3 * 45;
             }
         }
         myTransform.position = pos;  // 座標を設定
+
+        Trigger = Input.GetAxisRaw("Vertical"); //カーソルの移動速度制御
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
