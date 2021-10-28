@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         // スコアの表示を更新
         scoreText.text = score.ToString() + "/12 ";
         // すべての収集アイテムを獲得した場合
-        if (score >= 1)
+        if (score >= 12)
         {
             Time.timeScale = 0f;
             // リザルトの表示を更新

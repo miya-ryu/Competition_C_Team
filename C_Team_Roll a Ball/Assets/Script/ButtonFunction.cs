@@ -24,7 +24,7 @@ public class ButtonFunction : MonoBehaviour {
         gm = go.GetComponent<GameManager>();
         //Spaceキーが押されたら
 
-        if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Space)) && gm.score < 1)
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Space)) && gm.score < 12)
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
