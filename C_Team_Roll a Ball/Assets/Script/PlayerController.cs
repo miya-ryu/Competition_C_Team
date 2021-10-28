@@ -1,10 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-//[RequireComponent(typeof(ButtonFunction))]
 public class PlayerController : MonoBehaviour
 {
-    //GameObject go = GameObject.Find("ButtonFunction");
     ButtonFunction gg;
 
     public float speed; // 動く速さ
@@ -58,10 +56,6 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
             // リザルトの表示を更新
             ClearText.text = "GAME CLEAR!";
-        }
-        //void Update()
-        {
-            // if (Time.timeScale == 0 && score > 1) { Time.timeScale = 1; }
         }
     }
 }

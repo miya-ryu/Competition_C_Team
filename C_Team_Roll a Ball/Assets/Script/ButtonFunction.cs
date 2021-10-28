@@ -3,10 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-//[RequireComponent(typeof(PlayerController))]
 public class ButtonFunction : MonoBehaviour
 {
-    //[SerializeField]
     //　ポーズした時に表示するUIのプレハブ
     public GameObject menuUIPrefab;
     //　ポーズUIのインスタンス
@@ -15,14 +13,13 @@ public class ButtonFunction : MonoBehaviour
     GameObject go;
     PlayerController gm;
 
-    // Update is called once per frame
     void Update()
     {
         go = GameObject.Find("Ball");
         gm = go.GetComponent<PlayerController>();
 
         //STRAT ボタンもしくは Space ボタンが押されたら
-        if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Space)) && gm.score < gm.scoreMax)
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7) && gm.score < gm.scoreMax))
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
