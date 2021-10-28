@@ -2,24 +2,27 @@
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-[RequireComponent(typeof(PlayerController))]
-public class ButtonFunction : PlayerController
+
+//[RequireComponent(typeof(PlayerController))]
+public class ButtonFunction : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     //　ポーズした時に表示するUIのプレハブ
-    private GameObject menuUIPrefab;
+    public GameObject menuUIPrefab;
     //　ポーズUIのインスタンス
-    private GameObject menuUIInstance;
+    public GameObject menuUIInstance;
+
+    GameObject go;
+    PlayerController gm;
+
     // Update is called once per frame
-    static int scoreMax = 12;
-    private void Start()
-    {
-        score = 0;
-    }
     void Update()
     {
-        //STRAT BUTTON が押されたら
-        if (Input.GetKeyDown(KeyCode.JoystickButton7))
+        go = GameObject.Find("Ball");
+        gm = go.GetComponent<PlayerController>();
+
+        //STRAT ボタンもしくは Space ボタンが押されたら
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Space)) && gm.score < gm.scoreMax)
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
@@ -28,19 +31,20 @@ public class ButtonFunction : PlayerController
                 //ゲーム画面を止める
                 Time.timeScale = 0f;
             }
-            //else if (score >= scoreMax && menuUIInstance == null)
-            //{
-            //    Time.timeScale = 0f;
-            //}
             else
             {
                 Destroy(menuUIInstance);
                 Time.timeScale = 1f;
             }
         }
-        else if (Time.timeScale == 0 && menuUIInstance == null && score > 1)
+        else if (Time.timeScale == 0 && menuUIInstance == null && gm.score == 0)
         {
             Time.timeScale = 1f;
+        }
+        else if (gm.score >= gm.scoreMax)
+        {
+            //ゲーム画面を止める
+            Time.timeScale = 0f;
         }
     }
 }

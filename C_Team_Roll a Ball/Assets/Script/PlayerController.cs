@@ -1,14 +1,21 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+
+//[RequireComponent(typeof(ButtonFunction))]
 public class PlayerController : MonoBehaviour
 {
+    //GameObject go = GameObject.Find("ButtonFunction");
+    ButtonFunction gg;
+
     public float speed; // 動く速さ
     public Text scoreText; // スコアの UI
     public Text ClearText; // リザルトの UI
     private Rigidbody rb; // Rididbody
     public int score; // スコア
+    public int scoreMax;
     void Start()
     {
+        scoreMax = 12;
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
         // UI を初期化
@@ -46,7 +53,7 @@ public class PlayerController : MonoBehaviour
         // スコアの表示を更新
         scoreText.text = score.ToString() + "/12 ";
         // すべての収集アイテムを獲得した場合
-        if (score >= 1)
+        if (score >= 12)
         {
             Time.timeScale = 0f;
             // リザルトの表示を更新
