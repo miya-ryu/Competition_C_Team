@@ -1,5 +1,4 @@
-﻿
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -58,7 +57,7 @@ public class MenuSelect : MonoBehaviour {
                     SceneManager.LoadScene("SampleScene");
                     break;
                 case 1:
-
+                    break;
                 case 2:
                     Quit();
                     break;
