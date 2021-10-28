@@ -7,7 +7,6 @@ ScriptsOnlyBuild:
     - Rotate_Test3
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
-    - Cinemachine.CinemachineComposer
     - Cinemachine.CinemachineFramingTransposer
     - Cinemachine.CinemachinePipeline
     - Cinemachine.CinemachineVirtualCamera
@@ -74,8 +73,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 11874}
     - Class: 114
       Script: {instanceID: 12000}
-    - Class: 114
-      Script: {instanceID: 12074}
     - Class: 114
       Script: {instanceID: 12164}
     - Class: 114
@@ -858,5 +855,4 @@ ScriptsOnlyBuild:
   platform: 19
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: "D:/Competition_C_\u30D3\u30EB\u30C9/\u30C6\u30B9\u30C8/C_Team_Roll
-    a Ball.exe"
+  playerPath: "D:/Competition_C_\u30D3\u30EB\u30C9/2-4_C_Team/C_Team_Roll a Ball.exe"
