@@ -12,8 +12,10 @@ public class PlayerController : MonoBehaviour
     public Text ClearText; // リザルトの UI
     private Rigidbody rb; // Rididbody
     public int score; // スコア
+    public int scoreMax;
     void Start()
     {
+        scoreMax = 12;
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
         // UI を初期化

@@ -22,7 +22,7 @@ public class ButtonFunction : MonoBehaviour
         gm = go.GetComponent<PlayerController>();
 
         //STRAT ボタンもしくは Space ボタンが押されたら
-        if (Input.GetKeyDown(KeyCode.JoystickButton7))
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7)) && gm.score < gm.scoreMax)
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
@@ -41,7 +41,7 @@ public class ButtonFunction : MonoBehaviour
         {
             Time.timeScale = 1f;
         }
-        else if (gm.score >= 12)
+        else if (gm.score >= gm.scoreMax)
         {
             //ゲーム画面を止める
             Time.timeScale = 0f;
