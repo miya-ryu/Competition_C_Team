@@ -580,7 +580,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 10
+  m_CameraDistance: 17
   m_DeadZoneWidth: 0.15
   m_DeadZoneHeight: 0.15
   m_DeadZoneDepth: 0
@@ -1270,7 +1270,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.3333334, y: 1}
+    m_SensorSize: {x: 1.7777778, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1286,14 +1286,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819149552}
-  m_LocalRotation: {x: 0.22190766, y: -0.6723862, z: 0.22265361, w: 0.67013365}
-  m_LocalPosition: {x: 8.023602, y: 7.3283405, z: 0.026924271}
+  m_LocalRotation: {x: 0.28796116, y: -0.64668214, z: 0.28892916, w: 0.64451575}
+  m_LocalPosition: {x: 11.342279, y: 14.022988, z: 0.03805857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224244869}
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 30, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 48.149002, y: -90.192, z: 0}
 --- !u!1001 &901155718
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1478,8 +1478,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.22190766, y: -0.6723862, z: 0.22265361, w: 0.67013365}
-  m_LocalPosition: {x: 8.023602, y: 7.3283405, z: 0.026924271}
+  m_LocalRotation: {x: 0.28796116, y: -0.64668214, z: 0.28892916, w: 0.64451575}
+  m_LocalPosition: {x: 11.342279, y: 14.022988, z: 0.03805857}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
