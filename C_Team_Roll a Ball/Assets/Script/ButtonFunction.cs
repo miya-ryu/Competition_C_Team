@@ -22,7 +22,7 @@ public class ButtonFunction : MonoBehaviour
         gm = go.GetComponent<PlayerController>();
 
         //STRAT ボタンもしくは Space ボタンが押されたら
-        if ((Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Space)) && gm.score < gm.scoreMax)
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7)) && gm.score < gm.scoreMax)
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
