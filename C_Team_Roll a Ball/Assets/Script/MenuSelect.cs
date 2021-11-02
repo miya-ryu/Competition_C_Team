@@ -8,16 +8,6 @@ public class MenuSelect : MonoBehaviour {
 
     private float Trigger;
 
-    public AudioClip sound1;//試作
-    public AudioClip sound2;//試作
-
-    AudioSource audioSource;
-
-    void Start()
-    {
-        audioSource = GetComponent<AudioSource>();//試作
-    }
-
     void Quit()
     {
 #if UNITY_EDITOR
@@ -38,7 +28,6 @@ public class MenuSelect : MonoBehaviour {
 
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
-            audioSource.PlayOneShot(sound1);//試作
             number--;
             pos.y += 45;
 
@@ -51,7 +40,6 @@ public class MenuSelect : MonoBehaviour {
 
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
-            audioSource.PlayOneShot(sound1);//試作
             number++;
             pos.y -= 45;
 
@@ -68,7 +56,6 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
-            audioSource.PlayOneShot(sound2);//試作
             switch (number)
             {
                 case 0:
