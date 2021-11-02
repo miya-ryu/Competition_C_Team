@@ -3,10 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-//[RequireComponent(typeof(PlayerController))]
 public class ButtonFunction : MonoBehaviour
 {
-    //[SerializeField]
     //　ポーズした時に表示するUIのプレハブ
     public GameObject menuUIPrefab;
     //　ポーズUIのインスタンス
