@@ -19,7 +19,7 @@ public class ButtonFunction : MonoBehaviour
         go = GameObject.Find("Ball");
         gm = go.GetComponent<PlayerController>();
 
-        //STRAT ボタンもしくは Space ボタンが押されたら
+        //STRAT ボタンが押されたら
         if ((Input.GetKeyDown(KeyCode.JoystickButton7)) && gm.score < gm.scoreMax)
         {
             //メニューが出ていなかったら

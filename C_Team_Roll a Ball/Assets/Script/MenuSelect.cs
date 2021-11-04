@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,16 @@ public class MenuSelect : MonoBehaviour {
     int number = 0;
 
     private float Trigger;
+
+    public AudioClip sound1; //SE
+    public AudioClip sound2;
+    private AudioSource audioSource;
+
+    void Start()
+    {
+        //Component を取得
+        audioSource = GetComponent<AudioSource>();
+    }
 
     void Quit()
     {
@@ -28,6 +39,9 @@ public class MenuSelect : MonoBehaviour {
 
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
+            //音を鳴らす
+            audioSource.PlayOneShot(sound1);
+
             number--;
             pos.y += 45;
 
@@ -40,6 +54,9 @@ public class MenuSelect : MonoBehaviour {
 
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
+            //音を鳴らす
+            audioSource.PlayOneShot(sound1);
+
             number++;
             pos.y -= 45;
 
@@ -56,6 +73,8 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
+            audioSource.PlayOneShot(sound2); //音を鳴らす
+
             switch (number)
             {
                 case 0:
