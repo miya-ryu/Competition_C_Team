@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public static float ResultTime;
 
     public AudioClip sound1; //SE
+    public AudioClip sound2;
     private AudioSource audioSource;
 
     void Start()
@@ -79,6 +80,13 @@ public class PlayerController : MonoBehaviour
 
             // UI の表示を更新します
             SetCountText();
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Wall"))
+        {
+            audioSource.PlayOneShot(sound2);
         }
     }
 

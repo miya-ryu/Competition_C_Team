@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 130398683}
   m_Layer: 0
   m_Name: Wall (2)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -270,7 +270,7 @@ GameObject:
   - component: {fileID: 140429122}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -708,7 +708,7 @@ GameObject:
   - component: {fileID: 311596959}
   m_Layer: 0
   m_Name: Wall (1)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1815,7 +1815,7 @@ GameObject:
   - component: {fileID: 1236622312}
   m_Layer: 0
   m_Name: Wall (3)
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3014,6 +3014,7 @@ MonoBehaviour:
   score: 0
   scoreMax: 12
   sound1: {fileID: 8300000, guid: 08e02091cf5f2ed448a16f9ece82da6c, type: 3}
+  sound2: {fileID: 8300000, guid: 6a8d10473ed4c834d820d56ad22b465f, type: 3}
 --- !u!82 &1973211373
 AudioSource:
   m_ObjectHideFlags: 0
