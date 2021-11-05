@@ -11,7 +11,7 @@ public class MenuSelect : MonoBehaviour {
 
     public AudioClip sound1; //SE
     public AudioClip sound2;
-    private AudioSource audioSource;
+    AudioSource audioSource;
 
     void Start()
     {
