@@ -13,13 +13,14 @@ public class ButtonFunction : MonoBehaviour
     GameObject go;
     PlayerController gm;
 
+    // Update is called once per frame
     void Update()
     {
         go = GameObject.Find("Ball");
         gm = go.GetComponent<PlayerController>();
 
-        //STRAT ボタンもしくは Space ボタンが押されたら
-        if ((Input.GetKeyDown(KeyCode.JoystickButton7) && gm.score < gm.scoreMax))
+        //STRAT ボタンが押されたら
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7)) && gm.score < gm.scoreMax)
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
