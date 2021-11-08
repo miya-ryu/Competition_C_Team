@@ -25,15 +25,13 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
-    public AudioClip sound1; //SE
-    public AudioClip sound2;
-    private AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
+
+    [SerializeField] AudioClip sound1;
+    [SerializeField] AudioClip sound2;
 
     void Start()
     {
-        //SE の Component を取得
-        audioSource = GetComponent<AudioSource>();
-
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
 
