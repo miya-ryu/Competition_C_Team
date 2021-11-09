@@ -9,15 +9,12 @@ public class MenuSelect : MonoBehaviour {
 
     private float Trigger;
 
-    public AudioClip sound1; //SE
-    public AudioClip sound2;
-    AudioSource audioSource;
+    // 使用する AudioSource をアタッチ
+    [SerializeField] private AudioSource audioSource;
 
-    void Start()
-    {
-        //Component を取得
-        audioSource = GetComponent<AudioSource>();
-    }
+    // 使用する AudioClip をアタッチ
+    [SerializeField] private AudioClip sound1;
+    [SerializeField] private AudioClip sound2;
 
     void Quit()
     {

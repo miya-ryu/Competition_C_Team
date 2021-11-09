@@ -13,14 +13,21 @@ public class ButtonFunction : MonoBehaviour
     GameObject go;
     PlayerController gm;
 
+    GameObject CountText;
+    Timer script;
+    float countDown;
+
     // Update is called once per frame
     void Update()
     {
         go = GameObject.Find("Ball");
         gm = go.GetComponent<PlayerController>();
 
+        CountText = GameObject.Find("Game Clear");
+        script = CountText.GetComponent<Timer>();
+
         //STRAT ボタンが押されたら
-        if ((Input.GetKeyDown(KeyCode.JoystickButton7)) && gm.score < gm.scoreMax)
+        if ((Input.GetKeyDown(KeyCode.JoystickButton7)) && gm.score < gm.scoreMax && script.CountFlag)
         {
             //メニューが出ていなかったら
             if (menuUIInstance == null)
@@ -35,7 +42,7 @@ public class ButtonFunction : MonoBehaviour
                 Time.timeScale = 1f;
             }
         }
-        else if (Time.timeScale == 0 && menuUIInstance == null && gm.score == 0)
+        else if (Time.timeScale == 0 && menuUIInstance == null && gm.score == 0 && script.CountFlag)
         {
             Time.timeScale = 1f;
         }
