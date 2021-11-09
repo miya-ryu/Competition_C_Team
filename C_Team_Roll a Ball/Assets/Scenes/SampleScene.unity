@@ -3107,6 +3107,8 @@ MonoBehaviour:
   ResultScore: {fileID: 1471211731}
   score: 0
   scoreMax: 12
+  Item: {fileID: 8300000, guid: 08e02091cf5f2ed448a16f9ece82da6c, type: 3}
+  Wall: {fileID: 8300000, guid: 6a8d10473ed4c834d820d56ad22b465f, type: 3}
 --- !u!1 &2018903438
 GameObject:
   m_ObjectHideFlags: 0

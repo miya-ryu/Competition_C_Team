@@ -25,8 +25,15 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
+    public AudioClip Item;
+    public AudioClip Wall;
+    AudioSource audioSource;
+
     void Start()
     {
+        //Componentを取得
+        audioSource = GetComponent<AudioSource>();
+
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
 
@@ -62,6 +69,9 @@ public class PlayerController : MonoBehaviour
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
         {
+            //音を鳴らす
+            audioSource.PlayOneShot(Item);
+
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
 
@@ -70,6 +80,13 @@ public class PlayerController : MonoBehaviour
 
             // UI の表示を更新します
             SetCountText();
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+            audioSource.PlayOneShot(Wall);
         }
     }
 
