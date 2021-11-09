@@ -25,11 +25,6 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
-    [SerializeField] AudioSource audioSource;
-
-    [SerializeField] AudioClip sound1;
-    [SerializeField] AudioClip sound2;
-
     void Start()
     {
         // Rigidbody を取得
@@ -67,9 +62,6 @@ public class PlayerController : MonoBehaviour
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
         {
-            //音を鳴らす(sound1)
-            audioSource.PlayOneShot(sound1);
-
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
 
@@ -78,13 +70,6 @@ public class PlayerController : MonoBehaviour
 
             // UI の表示を更新します
             SetCountText();
-        }
-    }
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            audioSource.PlayOneShot(sound2);
         }
     }
 
