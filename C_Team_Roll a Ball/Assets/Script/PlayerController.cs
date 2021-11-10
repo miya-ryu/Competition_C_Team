@@ -25,15 +25,15 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
-    public AudioClip Item;
-    public AudioClip Wall;
-    AudioSource audioSource;
+    // 使用する AudioSource をアタッチ
+    [SerializeField] private AudioSource audioSource;
+
+    // 使用する AudioClip をアタッチ
+    [SerializeField] private AudioClip Item;
+    [SerializeField] private AudioClip Wall;
 
     void Start()
     {
-        //Componentを取得
-        audioSource = GetComponent<AudioSource>();
-
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
 
@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
 
     // 玉が他のオブジェクトにぶつかった時に呼び出される
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collider other)
     {
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
@@ -81,15 +81,11 @@ public class PlayerController : MonoBehaviour
             // UI の表示を更新します
             SetCountText();
         }
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.CompareTag("Wall"))
+        if (other.gameObject.tag == "Wall")
         {
             audioSource.PlayOneShot(Wall);
         }
     }
-
     void Update()
     {
         if (score >= scoreMax)

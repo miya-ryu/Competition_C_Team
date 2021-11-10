@@ -191,8 +191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1442649614}
-  sound1: {fileID: 8300000, guid: f40ead258360442438002de738bdac6a, type: 3}
-  sound2: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
+  Cursor1: {fileID: 8300000, guid: f40ead258360442438002de738bdac6a, type: 3}
+  Cursor2: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
 --- !u!82 &1442649614
 AudioSource:
   m_ObjectHideFlags: 0

@@ -13,8 +13,8 @@ public class MenuSelect : MonoBehaviour {
     [SerializeField] private AudioSource audioSource;
 
     // 使用する AudioClip をアタッチ
-    [SerializeField] private AudioClip sound1;
-    [SerializeField] private AudioClip sound2;
+    [SerializeField] private AudioClip Cursor1;
+    [SerializeField] private AudioClip Cursor2;
 
     void Quit()
     {
@@ -37,7 +37,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Cursor1);
 
             number--;
             pos.y += 45;
@@ -52,7 +52,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Cursor1);
 
             number++;
             pos.y -= 45;
@@ -70,7 +70,7 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
-            audioSource.PlayOneShot(sound2); //音を鳴らす
+            audioSource.PlayOneShot(Cursor2); //音を鳴らす
 
             switch (number)
             {
