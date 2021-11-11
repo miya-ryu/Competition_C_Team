@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-    //AudioSource audioSource;
     public AudioClip sound;
 
     void OnCollisionEnter(Collision col)
