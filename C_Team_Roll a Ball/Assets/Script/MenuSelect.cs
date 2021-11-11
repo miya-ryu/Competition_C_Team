@@ -9,12 +9,14 @@ public class MenuSelect : MonoBehaviour {
 
     private float Trigger;
 
+    bool i = true;
+
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource;
 
     // 使用する AudioClip をアタッチ
-    [SerializeField] private AudioClip sound1;
-    [SerializeField] private AudioClip sound2;
+    [SerializeField] private AudioClip Cursor1;
+    [SerializeField] private AudioClip Cursor2;
 
     void Quit()
     {
@@ -37,7 +39,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Cursor1);
 
             number--;
             pos.y += 45;
@@ -52,7 +54,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Cursor1);
 
             number++;
             pos.y -= 45;
@@ -68,9 +70,9 @@ public class MenuSelect : MonoBehaviour {
 
         Trigger = Input.GetAxisRaw("Vertical"); //カーソルの移動速度制御
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            audioSource.PlayOneShot(sound2); //音を鳴らす
+            audioSource.PlayOneShot(Cursor2); //音を鳴らす
 
             switch (number)
             {
