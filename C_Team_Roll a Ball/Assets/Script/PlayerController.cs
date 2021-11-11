@@ -6,37 +6,43 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     ButtonFunction gg;
-
+    
     public float speed; // 動く速さ
-
+    
     public Text scoreText; // スコアの UI
     public Text ClearText; // リザルトの UI
     public Text ResultText;
+    public Text Button;
     public Text PlayCount;
     public Text CountTimeText;
     public Text ResultScore;
-
     private Rigidbody rb; // Rididbody
 
     public int score; // スコア
     public int scoreMax;
-
+    
     public static float CountTime;
     public static float CountTimeM;
     public static float ResultTime;
+    [SerializeField] GameObject resultPanel;
 
-    // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource;
+    [SerializeField] public AudioClip Item; //SE
+    [SerializeField] public AudioClip Wall; //SE
 
-    // 使用する AudioClip をアタッチ
-    [SerializeField] private AudioClip Item;
-    [SerializeField] private AudioClip Wall;
-
+    public GameObject retryUIPrefab;
+    public GameObject retryUIInstance;
+    
     void Start()
     {
+        //SE の Component を取得
+        audioSource = GetComponent<AudioSource>();
+        
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
-
+        
+        resultPanel.SetActive(false);
+        
         // UI を初期化
         score = 0;
         CountTime = 0;
@@ -49,7 +55,7 @@ public class PlayerController : MonoBehaviour
         PlayCount.text = "";
         CountTimeText.text = "";
     }
-
+    
     void FixedUpdate()
     {
         if (CountTime >= 60f)
@@ -62,30 +68,27 @@ public class PlayerController : MonoBehaviour
             CountTime += Time.deltaTime;
         }
     }
-
+    
     // 玉が他のオブジェクトにぶつかった時に呼び出される
-    void OnCollisionEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
         {
-            //音を鳴らす
+            //音を鳴らす(sound1)
             audioSource.PlayOneShot(Item);
-
+            
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
-
+            
             // スコアを加算します
             score = score + 1;
-
+            
             // UI の表示を更新します
             SetCountText();
         }
-        if (other.gameObject.tag == "Wall")
-        {
-            audioSource.PlayOneShot(Wall);
-        }
     }
+    
     void Update()
     {
         if (score >= scoreMax)
@@ -93,6 +96,7 @@ public class PlayerController : MonoBehaviour
             ResultTime += Time.unscaledDeltaTime;
             if (ResultTime >= 1f)
             {
+                resultPanel.SetActive(true);
                 ResultTime = 1f;
                 ResultText.text = "ゲームリザルト";
                 ResultScore.text = "獲得したコイン　" + score.ToString() + "枚";
@@ -100,16 +104,24 @@ public class PlayerController : MonoBehaviour
                 CountTimeText.text = CountTimeM.ToString("F0") + ":" + CountTime.ToString("F0");
                 ClearText.text = "";
                 scoreText.text = "";
+                if ((Input.GetKeyUp(KeyCode.JoystickButton1)) || (Input.GetKeyUp(KeyCode.JoystickButton2)))
+                {
+                    retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
+                    if (Input.GetKeyDown(KeyCode.JoystickButton1) || (Input.GetKeyDown(KeyCode.JoystickButton2)))
+                    {
+                        Destroy(retryUIInstance);
+                    }
+                }
             }
         }
     }
-
+    
     // UI の表示を更新する
     void SetCountText()
     {
         // スコアの表示を更新
         scoreText.text = score.ToString() + "/" + scoreMax.ToString();
-
+        
         // すべての収集アイテムを獲得した場合
         if (score >= scoreMax)
         {

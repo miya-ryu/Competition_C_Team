@@ -9,6 +9,8 @@ public class MenuSelect : MonoBehaviour {
 
     private float Trigger;
 
+    bool i = true;
+
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource;
 
@@ -68,7 +70,7 @@ public class MenuSelect : MonoBehaviour {
 
         Trigger = Input.GetAxisRaw("Vertical"); //カーソルの移動速度制御
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             audioSource.PlayOneShot(Cursor2); //音を鳴らす
 
