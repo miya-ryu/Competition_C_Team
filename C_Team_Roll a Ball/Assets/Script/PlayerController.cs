@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
     public Text scoreText; // スコアの UI
     public Text ClearText; // リザルトの UI
     public Text ResultText;
-    public Text Button;
     public Text PlayCount;
     public Text CountTimeText;
     public Text ResultScore;
@@ -24,15 +23,22 @@ public class PlayerController : MonoBehaviour
     public static float CountTime;
     public static float CountTimeM;
     public static float ResultTime;
-    [SerializeField] GameObject resultPanel;
 
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] public AudioClip Item; //SE
-    [SerializeField] public AudioClip Wall; //SE
+    [SerializeField] GameObject resultPanel;
 
     public GameObject retryUIPrefab;
     public GameObject retryUIInstance;
-    
+
+    // 使用する AudioSource をアタッチ
+    [SerializeField] private AudioSource audioSource;
+
+    // 使用する AudioClip をアタッチ
+    [SerializeField] public AudioClip Item;
+    [SerializeField] public AudioClip Wall;
+
+    public ParticleSystem particle;
+    bool Particle = false;
+
     void Start()
     {
         //SE の Component を取得
@@ -77,7 +83,7 @@ public class PlayerController : MonoBehaviour
         {
             //音を鳴らす(sound1)
             audioSource.PlayOneShot(Item);
-            
+
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
             
@@ -86,6 +92,11 @@ public class PlayerController : MonoBehaviour
             
             // UI の表示を更新します
             SetCountText();
+        }
+        if (other.gameObject.CompareTag("Wall"))
+        {
+            //音を鳴らす(sound1)
+            audioSource.PlayOneShot(Wall);
         }
     }
     
@@ -112,6 +123,13 @@ public class PlayerController : MonoBehaviour
                         Destroy(retryUIInstance);
                     }
                 }
+            }
+
+            if (!Particle)
+            {
+                Particle = true;
+                ParticleSystem newParticle = Instantiate(particle);
+                newParticle.Play();
             }
         }
     }

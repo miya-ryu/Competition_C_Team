@@ -9,14 +9,12 @@ public class MenuSelect : MonoBehaviour {
 
     private float Trigger;
 
-    bool i = true;
-
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource;
 
     // 使用する AudioClip をアタッチ
-    [SerializeField] private AudioClip Cursor1;
-    [SerializeField] private AudioClip Cursor2;
+    [SerializeField] public AudioClip Cursor1;
+    [SerializeField] public AudioClip Cursor2;
 
     void Quit()
     {

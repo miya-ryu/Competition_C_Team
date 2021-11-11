@@ -40,12 +40,13 @@ public class Timer : MonoBehaviour
         {
             countdown -= Time.unscaledDeltaTime;
             CountText.text = "スタート！";
-
-            //音を鳴らす
-            audioSource.PlayOneShot(Hoissuru);
+            countdown = 0f;
         }
         else if (CountText.text == "スタート！" && CountFlag == false)
         {
+            //音を鳴らす
+            audioSource.PlayOneShot(Hoissuru);
+
             countdown -= Time.unscaledDeltaTime;
             if (-countdown >= 0.5f && CountFlag == false)
             {
