@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public int count;
 
     public bool CountFlag;
+    public bool CountFlag2;
 
     GameObject go;
     PlayerController gg;
@@ -17,19 +18,23 @@ public class Timer : MonoBehaviour
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Countdown;
-    [SerializeField] public AudioClip Hoissuru;
 
     public void Start()
     {
         CountFlag = false;
+        CountFlag2 = false;
     }
 
     void Update()
     {
         if (countdown > 1 && CountFlag == false)
         {
-            //音を鳴らす
-            audioSource.PlayOneShot(Countdown);
+            if (!CountFlag2)
+            {
+                CountFlag2 = true;
+                //音を鳴らす
+                audioSource.PlayOneShot(Countdown);
+            }
 
             Time.timeScale = 0f;
             countdown -= Time.unscaledDeltaTime;
@@ -40,13 +45,9 @@ public class Timer : MonoBehaviour
         {
             countdown -= Time.unscaledDeltaTime;
             CountText.text = "スタート！";
-            countdown = 0f;
         }
         else if (CountText.text == "スタート！" && CountFlag == false)
         {
-            //音を鳴らす
-            audioSource.PlayOneShot(Hoissuru);
-
             countdown -= Time.unscaledDeltaTime;
             if (-countdown >= 0.5f && CountFlag == false)
             {

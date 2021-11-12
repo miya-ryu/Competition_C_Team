@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public Text PlayCount;
     public Text CountTimeText;
     public Text ResultScore;
+    public Text ResultGuide;
     private Rigidbody rb; // Rididbody
 
     public int score; // スコア
@@ -60,6 +61,7 @@ public class PlayerController : MonoBehaviour
         ResultScore.text = "";
         PlayCount.text = "";
         CountTimeText.text = "";
+        ResultGuide.text = "";
     }
     
     void FixedUpdate()
@@ -93,13 +95,20 @@ public class PlayerController : MonoBehaviour
             // UI の表示を更新します
             SetCountText();
         }
-        if (other.gameObject.CompareTag("Wall"))
+    }
+
+    //試作品
+    void OnCollisionEnter(Collision collision)
+    {
+        //ぶつかったオブジェクトのタグがボールだったら
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            //音を鳴らす(sound1)
+            Debug.Log("当たった");
+            //音を鳴らす
             audioSource.PlayOneShot(Wall);
         }
     }
-    
+
     void Update()
     {
         if (score >= scoreMax)
@@ -110,11 +119,12 @@ public class PlayerController : MonoBehaviour
                 resultPanel.SetActive(true);
                 ResultTime = 1f;
                 ResultText.text = "ゲームリザルト";
-                ResultScore.text = "獲得したコイン　" + score.ToString() + "枚";
+                ResultScore.text = "取得したコイン　" + score.ToString() + "枚";
                 PlayCount.text = "かかった時間 ";
                 CountTimeText.text = CountTimeM.ToString("F0") + ":" + CountTime.ToString("F0");
                 ClearText.text = "";
                 scoreText.text = "";
+                ResultGuide.text = "～B or X ボタンを押してください～";
                 if ((Input.GetKeyUp(KeyCode.JoystickButton1)) || (Input.GetKeyUp(KeyCode.JoystickButton2)))
                 {
                     retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
