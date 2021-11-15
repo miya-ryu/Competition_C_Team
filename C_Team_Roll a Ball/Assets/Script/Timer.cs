@@ -22,26 +22,28 @@ public class Timer : MonoBehaviour
     public void Start()
     {
         CountFlag = false;
-        CountFlag2 = false;
     }
 
     void Update()
     {
         if (countdown > 1 && CountFlag == false)
         {
-            if (!CountFlag2)
-            {
-                CountFlag2 = true;
-                //音を鳴らす
-                audioSource.PlayOneShot(Countdown);
-            }
+            //音を鳴らす
+            audioSource.PlayOneShot(Countdown);
 
             Time.timeScale = 0f;
             countdown -= Time.unscaledDeltaTime;
             count = (int)countdown;
-            CountText.text = count.ToString();
+            if(count.ToString() != "0")
+            {
+                CountText.text = count.ToString();
+            }
+            else
+            {
+                CountText.text = "";
+            }
         }
-        else if (CountText.text == "0" && CountFlag == false)
+        else if (CountText.text == "" && CountFlag == false)
         {
             countdown -= Time.unscaledDeltaTime;
             CountText.text = "スタート！";

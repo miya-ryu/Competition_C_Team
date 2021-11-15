@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
-    [SerializeField] public AudioClip Wall;
+    [SerializeField] public AudioClip Floor;
 
     public ParticleSystem particle;
     bool Particle = false;
@@ -95,18 +95,13 @@ public class PlayerController : MonoBehaviour
             // UI の表示を更新します
             SetCountText();
         }
-    }
 
-    //試作品
-    void OnCollisionEnter(Collision collision)
-    {
-        //ぶつかったオブジェクトのタグがボールだったら
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            Debug.Log("当たった");
-            //音を鳴らす
-            audioSource.PlayOneShot(Wall);
-        }
+        ////接地面のオブジェクトのタグが Floor だったら
+        //if (other.gameObject.CompareTag("Floor"))
+        //{
+        //    //音を鳴らす
+        //    audioSource.PlayOneShot(Floor);
+        //}
     }
 
     void Update()
