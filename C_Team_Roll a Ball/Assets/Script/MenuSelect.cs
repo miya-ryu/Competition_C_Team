@@ -16,6 +16,17 @@ public class MenuSelect : MonoBehaviour {
     [SerializeField] public AudioClip Cursor1;
     [SerializeField] public AudioClip Cursor2;
 
+    public bool DontDestroyEnabled = true;
+
+    void Start()
+    {
+        if (DontDestroyEnabled)
+        {
+            // Sceneを遷移してもオブジェクトが消えないようにする
+            DontDestroyOnLoad(this);
+        }
+    }
+
     void Quit()
     {
 #if UNITY_EDITOR

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     ButtonFunction gg;
-    
+
     public float speed; // 動く速さ
-    
+
     public Text scoreText; // スコアの UI
     public Text ClearText; // リザルトの UI
     public Text ResultText;
@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
 
     public int score; // スコア
     public int scoreMax;
-    
+
     public static float CountTime;
     public static float CountTimeM;
     public static float ResultTime;
@@ -35,10 +35,8 @@ public class PlayerController : MonoBehaviour
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
-    [SerializeField] public AudioClip Floor;
 
-    public ParticleSystem particle;
-    bool Particle = false;
+    [SerializeField] public ParticleSystem particle;
 
     void Start()
     {
@@ -95,19 +93,13 @@ public class PlayerController : MonoBehaviour
             // UI の表示を更新します
             SetCountText();
         }
-
-        ////接地面のオブジェクトのタグが Floor だったら
-        //if (other.gameObject.CompareTag("Floor"))
-        //{
-        //    //音を鳴らす
-        //    audioSource.PlayOneShot(Floor);
-        //}
     }
 
     void Update()
     {
         if (score >= scoreMax)
         {
+            particle.Play();
             ResultTime += Time.unscaledDeltaTime;
             if (ResultTime >= 1f)
             {
@@ -129,13 +121,6 @@ public class PlayerController : MonoBehaviour
                     }
                 }
             }
-
-            if (!Particle)
-            {
-                Particle = true;
-                ParticleSystem newParticle = Instantiate(particle);
-                newParticle.Play();
-            }
         }
     }
     
@@ -151,7 +136,7 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
 
             // リザルトの表示を更新
-            ClearText.text = "GAME CLEAR!";
+            ClearText.text = "ゲームクリア！";
         }
     }
 }

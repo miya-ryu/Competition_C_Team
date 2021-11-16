@@ -12,11 +12,11 @@ public class WallSound : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        // ぶつかったオブジェクトが収集アイテムだった場合
+        // ぶつかったオブジェクトが Ball だった場合
         if (other.gameObject.CompareTag("Ball"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Wall, 1.0f);
+            audioSource.PlayOneShot(Wall);
         }
     }
 }
