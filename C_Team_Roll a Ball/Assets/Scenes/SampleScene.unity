@@ -3943,8 +3943,6 @@ MonoBehaviour:
   retryUIInstance: {fileID: 0}
   audioSource: {fileID: 1973211373}
   Item: {fileID: 8300000, guid: 08e02091cf5f2ed448a16f9ece82da6c, type: 3}
-  particle: {fileID: 4554091435317781910, guid: 83fcd155b1d1cb443b7435262aad81a0,
-    type: 3}
 --- !u!82 &1973211373
 AudioSource:
   m_ObjectHideFlags: 0

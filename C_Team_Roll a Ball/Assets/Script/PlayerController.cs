@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
 
-    [SerializeField] public ParticleSystem particle;
+    GameObject particle;
 
     void Start()
     {
@@ -60,6 +60,10 @@ public class PlayerController : MonoBehaviour
         PlayCount.text = "";
         CountTimeText.text = "";
         ResultGuide.text = "";
+
+        Effect();
+        particle = GameObject.Find("Paper");
+        particle.SetActive(false);
     }
     
     void FixedUpdate()
@@ -99,8 +103,10 @@ public class PlayerController : MonoBehaviour
     {
         if (score >= scoreMax)
         {
-            particle.Play();
             ResultTime += Time.unscaledDeltaTime;
+            particle.transform.position = new Vector3(0, 14, 0);
+            particle.SetActive(true);
+            particle.GetComponent<ParticleSystem>().Play();
             if (ResultTime >= 1f)
             {
                 resultPanel.SetActive(true);
@@ -137,6 +143,14 @@ public class PlayerController : MonoBehaviour
 
             // リザルトの表示を更新
             ClearText.text = "ゲームクリア！";
+        }
+    }
+
+    void Effect()
+    {
+        if(score >= scoreMax)
+        {
+            
         }
     }
 }

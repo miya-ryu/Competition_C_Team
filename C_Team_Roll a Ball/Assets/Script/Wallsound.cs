@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallSound : MonoBehaviour
+public class Wallsound : MonoBehaviour
 {
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource;
