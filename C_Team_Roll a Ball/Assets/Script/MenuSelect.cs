@@ -9,14 +9,22 @@ public class MenuSelect : MonoBehaviour {
 
     private float Trigger;
 
-    public AudioClip sound1; //SE
-    public AudioClip sound2;
-    AudioSource audioSource;
+    // 使用する AudioSource をアタッチ
+    [SerializeField] private AudioSource audioSource;
+
+    // 使用する AudioClip をアタッチ
+    [SerializeField] public AudioClip Cursor1;
+    [SerializeField] public AudioClip Cursor2;
+
+    public bool DontDestroyEnabled = true;
 
     void Start()
     {
-        //Component を取得
-        audioSource = GetComponent<AudioSource>();
+        if (DontDestroyEnabled)
+        {
+            // Sceneを遷移してもオブジェクトが消えないようにする
+            DontDestroyOnLoad(this);
+        }
     }
 
     void Quit()
@@ -40,7 +48,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Cursor1);
 
             number--;
             pos.y += 45;
@@ -55,7 +63,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Cursor1);
 
             number++;
             pos.y -= 45;
@@ -71,9 +79,9 @@ public class MenuSelect : MonoBehaviour {
 
         Trigger = Input.GetAxisRaw("Vertical"); //カーソルの移動速度制御
 
-        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            audioSource.PlayOneShot(sound2); //音を鳴らす
+            audioSource.PlayOneShot(Cursor2); //音を鳴らす
 
             switch (number)
             {
