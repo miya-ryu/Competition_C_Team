@@ -6,20 +6,21 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     ButtonFunction gg;
-    
+
     public float speed; // 動く速さ
-    
+
     public Text scoreText; // スコアの UI
     public Text ClearText; // リザルトの UI
     public Text ResultText;
     public Text PlayCount;
     public Text CountTimeText;
     public Text ResultScore;
+    public Text ResultGuide;
     private Rigidbody rb; // Rididbody
 
     public int score; // スコア
     public int scoreMax;
-    
+
     public static float CountTime;
     public static float CountTimeM;
     public static float ResultTime;
@@ -34,10 +35,8 @@ public class PlayerController : MonoBehaviour
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
-    [SerializeField] public AudioClip Wall;
 
-    public ParticleSystem particle;
-    bool Particle = false;
+    GameObject particle;
 
     void Start()
     {
@@ -60,6 +59,11 @@ public class PlayerController : MonoBehaviour
         ResultScore.text = "";
         PlayCount.text = "";
         CountTimeText.text = "";
+        ResultGuide.text = "";
+
+        Effect();
+        particle = GameObject.Find("Paper");
+        particle.SetActive(false);
     }
     
     void FixedUpdate()
@@ -93,28 +97,27 @@ public class PlayerController : MonoBehaviour
             // UI の表示を更新します
             SetCountText();
         }
-        if (other.gameObject.CompareTag("Wall"))
-        {
-            //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Wall);
-        }
     }
-    
+
     void Update()
     {
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
+            particle.transform.position = new Vector3(0, 14, 0);
+            particle.SetActive(true);
+            particle.GetComponent<ParticleSystem>().Play();
             if (ResultTime >= 1f)
             {
                 resultPanel.SetActive(true);
                 ResultTime = 1f;
                 ResultText.text = "ゲームリザルト";
-                ResultScore.text = "獲得したコイン　" + score.ToString() + "枚";
+                ResultScore.text = "取得したコイン　" + score.ToString() + "枚";
                 PlayCount.text = "かかった時間 ";
                 CountTimeText.text = CountTimeM.ToString("F0") + ":" + CountTime.ToString("F0");
                 ClearText.text = "";
                 scoreText.text = "";
+                ResultGuide.text = "～B or X ボタンを押してください～";
                 if ((Input.GetKeyUp(KeyCode.JoystickButton1)) || (Input.GetKeyUp(KeyCode.JoystickButton2)))
                 {
                     retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
@@ -123,13 +126,6 @@ public class PlayerController : MonoBehaviour
                         Destroy(retryUIInstance);
                     }
                 }
-            }
-
-            if (!Particle)
-            {
-                Particle = true;
-                ParticleSystem newParticle = Instantiate(particle);
-                newParticle.Play();
             }
         }
     }
@@ -146,7 +142,15 @@ public class PlayerController : MonoBehaviour
             Time.timeScale = 0f;
 
             // リザルトの表示を更新
-            ClearText.text = "GAME CLEAR!";
+            ClearText.text = "ゲームクリア！";
+        }
+    }
+
+    void Effect()
+    {
+        if(score >= scoreMax)
+        {
+            
         }
     }
 }

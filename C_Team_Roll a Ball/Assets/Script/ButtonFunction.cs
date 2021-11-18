@@ -23,7 +23,7 @@ public class ButtonFunction : MonoBehaviour
         go = GameObject.Find("Ball");
         gm = go.GetComponent<PlayerController>();
 
-        CountText = GameObject.Find("Game Clear");
+        CountText = GameObject.Find("Game UI");
         script = CountText.GetComponent<Timer>();
 
         //STRAT ボタンが押されたら
