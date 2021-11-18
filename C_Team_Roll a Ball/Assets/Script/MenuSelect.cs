@@ -44,7 +44,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Cursor1);
+            audioSource.PlayOneShot(Cursor1, 0.2f);
 
             number--;
             pos.y += 45;
@@ -59,7 +59,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Cursor1);
+            audioSource.PlayOneShot(Cursor1, 0.2f);
 
             number++;
             pos.y -= 45;
@@ -82,7 +82,7 @@ public class MenuSelect : MonoBehaviour {
                 // Sceneを遷移してもオブジェクトが消えないようにする
                 DontDestroyOnLoad(this);
 
-                audioSource.PlayOneShot(Cursor2); //音を鳴らす
+                audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
             }
 
             switch (number)

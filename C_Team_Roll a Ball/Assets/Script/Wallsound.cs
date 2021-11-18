@@ -16,7 +16,7 @@ public class Wallsound : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Wall);
+            audioSource.PlayOneShot(Wall, 0.5f);
         }
     }
 }

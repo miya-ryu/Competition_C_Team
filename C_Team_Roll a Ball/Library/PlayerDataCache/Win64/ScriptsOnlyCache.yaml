@@ -2,10 +2,14 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ButtonFunction
+    - FrameLate
     - MenuSelect
+    - ParticleRotation
     - PlayerController
     - Rotate_Test3
     - SceneSwap
+    - Timer
+    - Wallsound
     Cinemachine.dll:
     - Cinemachine.CinemachineBrain
     - Cinemachine.CinemachineFramingTransposer
@@ -55,19 +59,19 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11390}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11454}
     - Class: 114
-      Script: {instanceID: 12020}
+      Script: {instanceID: 12026}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13698}
+      Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 13834}
+      Script: {instanceID: 13850}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -118,33 +122,41 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11156}
+      Script: {instanceID: 11160}
     - Class: 114
-      Script: {instanceID: 11390}
+      Script: {instanceID: 11394}
     - Class: 114
-      Script: {instanceID: 11450}
+      Script: {instanceID: 11454}
     - Class: 114
-      Script: {instanceID: 11666}
+      Script: {instanceID: 11672}
     - Class: 114
-      Script: {instanceID: 12020}
+      Script: {instanceID: 12026}
     - Class: 114
-      Script: {instanceID: 12082}
+      Script: {instanceID: 12088}
     - Class: 114
-      Script: {instanceID: 12276}
+      Script: {instanceID: 12282}
     - Class: 114
-      Script: {instanceID: 12494}
+      Script: {instanceID: 12310}
     - Class: 114
-      Script: {instanceID: 13056}
+      Script: {instanceID: 12502}
     - Class: 114
-      Script: {instanceID: 13350}
+      Script: {instanceID: 13064}
     - Class: 114
-      Script: {instanceID: 13442}
+      Script: {instanceID: 13358}
     - Class: 114
-      Script: {instanceID: 13800}
+      Script: {instanceID: 13410}
     - Class: 114
-      Script: {instanceID: 13834}
+      Script: {instanceID: 13420}
     - Class: 114
-      Script: {instanceID: 13920}
+      Script: {instanceID: 13456}
+    - Class: 114
+      Script: {instanceID: 13502}
+    - Class: 114
+      Script: {instanceID: 13816}
+    - Class: 114
+      Script: {instanceID: 13850}
+    - Class: 114
+      Script: {instanceID: 13936}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -370,7 +382,7 @@ ScriptsOnlyBuild:
     className: InputActionEditorWindow
   - hash:
       serializedVersion: 2
-      Hash: d6ab8018023ee156603dfa422750a2c6
+      Hash: c32f235341a7c6697d18d172ee83bf1e
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuSelect
@@ -544,7 +556,7 @@ ScriptsOnlyBuild:
     className: PlayerInputEditor
   - hash:
       serializedVersion: 2
-      Hash: 0ebb7981a5ecabecf206423f287ee180
+      Hash: a53f23498987b4d14a29a4cdbce68cde
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
@@ -560,6 +572,12 @@ ScriptsOnlyBuild:
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineOrbitalTransposer
+  - hash:
+      serializedVersion: 2
+      Hash: 7acd0cbdd091fb6739f97d7c6bb47f44
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FrameLate
   - hash:
       serializedVersion: 2
       Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
@@ -892,10 +910,22 @@ ScriptsOnlyBuild:
     className: CinemachineSmoothPath
   - hash:
       serializedVersion: 2
+      Hash: e0db969d0b4d2c0064ea1c100b97bc1d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Wallsound
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineHardLookAt
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ParticleRotation
   - hash:
       serializedVersion: 2
       Hash: fb098a805b436b7bc9e759379191feea
@@ -904,10 +934,22 @@ ScriptsOnlyBuild:
     className: CinemachineInputProvider
   - hash:
       serializedVersion: 2
+      Hash: 0aac780cfeca4118c833e49bbdf399f1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: FloorSound
+  - hash:
+      serializedVersion: 2
       Hash: 1af93f53ba1dd669c9fd1536cd30b994
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ButtonFunction
+  - hash:
+      serializedVersion: 2
+      Hash: 84e91c011103959fed38588b1529a307
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Timer
   - hash:
       serializedVersion: 2
       Hash: ffd3ed4fcd23b3e7745287c99a637247
@@ -1090,10 +1132,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 7acd0cbdd091fb6739f97d7c6bb47f44
+      Hash: e693421d1b5a30cb92dcaab52efb0c13
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: FrameLate
+    className: StartParticle
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
