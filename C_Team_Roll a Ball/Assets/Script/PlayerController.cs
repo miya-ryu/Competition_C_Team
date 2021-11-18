@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public Text PlayCount;
     public Text CountTimeText;
     public Text ResultScore;
-
+    public Text ResultGuide;
     private Rigidbody rb; // Rididbody
 
     public int score; // スコア
@@ -25,17 +25,29 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
-    public AudioClip sound1; //SE
-    private AudioSource audioSource;
+    [SerializeField] GameObject resultPanel;
+
+    public GameObject retryUIPrefab;
+    public GameObject retryUIInstance;
+
+    // 使用する AudioSource をアタッチ
+    [SerializeField] private AudioSource audioSource;
+
+    // 使用する AudioClip をアタッチ
+    [SerializeField] public AudioClip Item;
+
+    GameObject particle;
 
     void Start()
     {
         //SE の Component を取得
         audioSource = GetComponent<AudioSource>();
-
+        
         // Rigidbody を取得
         rb = GetComponent<Rigidbody>();
-
+        
+        resultPanel.SetActive(false);
+        
         // UI を初期化
         score = 0;
         CountTime = 0;
@@ -47,8 +59,13 @@ public class PlayerController : MonoBehaviour
         ResultScore.text = "";
         PlayCount.text = "";
         CountTimeText.text = "";
-    }
+        ResultGuide.text = "";
 
+        Effect();
+        particle = GameObject.Find("Paper");
+        particle.SetActive(false);
+    }
+    
     void FixedUpdate()
     {
         if (CountTime >= 60f)
@@ -61,7 +78,7 @@ public class PlayerController : MonoBehaviour
             CountTime += Time.deltaTime;
         }
     }
-
+    
     // 玉が他のオブジェクトにぶつかった時に呼び出される
     void OnTriggerEnter(Collider other)
     {
@@ -69,14 +86,14 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(sound1);
+            audioSource.PlayOneShot(Item);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
-
+            
             // スコアを加算します
             score = score + 1;
-
+            
             // UI の表示を更新します
             SetCountText();
         }
@@ -87,32 +104,53 @@ public class PlayerController : MonoBehaviour
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
+            particle.transform.position = new Vector3(0, 14, 0);
+            particle.SetActive(true);
+            particle.GetComponent<ParticleSystem>().Play();
             if (ResultTime >= 1f)
             {
+                resultPanel.SetActive(true);
                 ResultTime = 1f;
                 ResultText.text = "ゲームリザルト";
-                ResultScore.text = "獲得したコイン　" + score.ToString() + "枚";
+                ResultScore.text = "取得したコイン　" + score.ToString() + "枚";
                 PlayCount.text = "かかった時間 ";
                 CountTimeText.text = CountTimeM.ToString("F0") + ":" + CountTime.ToString("F0");
                 ClearText.text = "";
                 scoreText.text = "";
+                ResultGuide.text = "～B or X ボタンを押してください～";
+                if ((Input.GetKeyUp(KeyCode.JoystickButton1)) || (Input.GetKeyUp(KeyCode.JoystickButton2)))
+                {
+                    retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
+                    if (Input.GetKeyDown(KeyCode.JoystickButton1) || (Input.GetKeyDown(KeyCode.JoystickButton2)))
+                    {
+                        Destroy(retryUIInstance);
+                    }
+                }
             }
         }
     }
-
+    
     // UI の表示を更新する
     void SetCountText()
     {
         // スコアの表示を更新
         scoreText.text = score.ToString() + "/" + scoreMax.ToString();
-
+        
         // すべての収集アイテムを獲得した場合
         if (score >= scoreMax)
         {
             Time.timeScale = 0f;
 
             // リザルトの表示を更新
-            ClearText.text = "GAME CLEAR!";
+            ClearText.text = "ゲームクリア！";
+        }
+    }
+
+    void Effect()
+    {
+        if(score >= scoreMax)
+        {
+            
         }
     }
 }

@@ -7,6 +7,7 @@ public class FrameLate : MonoBehaviour
     float currentFrameTime;
     void Start()
     {
+        Time.fixedDeltaTime = 1 / Rate;
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 9999;
         currentFrameTime = Time.realtimeSinceStartup;
