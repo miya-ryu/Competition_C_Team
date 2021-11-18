@@ -25,17 +25,18 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
-    [SerializeField] GameObject resultPanel;
+    [SerializeField] GameObject resultPanel = null;
 
     public GameObject retryUIPrefab;
     public GameObject retryUIInstance;
 
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
 
+    // Particle のオブジェクト
     GameObject particle;
 
     void Start()
@@ -61,7 +62,7 @@ public class PlayerController : MonoBehaviour
         CountTimeText.text = "";
         ResultGuide.text = "";
 
-        Effect();
+        // Particle の取得と非表示
         particle = GameObject.Find("Paper");
         particle.SetActive(false);
     }
@@ -104,9 +105,14 @@ public class PlayerController : MonoBehaviour
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
-            particle.transform.position = new Vector3(0, 14, 0);
-            particle.SetActive(true);
-            particle.GetComponent<ParticleSystem>().Play();
+            
+            if (score == scoreMax)
+            {
+                particle.SetActive(true);
+                particle.transform.position = new Vector3(0, 14, 0);
+                particle.GetComponent<ParticleSystem>().Play();
+            }
+
             if (ResultTime >= 1f)
             {
                 resultPanel.SetActive(true);
@@ -143,14 +149,6 @@ public class PlayerController : MonoBehaviour
 
             // リザルトの表示を更新
             ClearText.text = "ゲームクリア！";
-        }
-    }
-
-    void Effect()
-    {
-        if(score >= scoreMax)
-        {
-            
         }
     }
 }
