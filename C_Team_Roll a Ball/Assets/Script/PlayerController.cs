@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public AudioClip Item;
 
     // Particle のオブジェクト
-    GameObject particle;
+    [SerializeField] public GameObject particle;
+    float particletime;
 
     void Start()
     {
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         // Particle の取得と非表示
         particle = GameObject.Find("Paper");
         particle.SetActive(false);
+        particletime = 0;
     }
     
     void FixedUpdate()
@@ -87,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Item);
+            audioSource.PlayOneShot(Item, 0.2f);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
@@ -105,12 +107,14 @@ public class PlayerController : MonoBehaviour
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
-            
-            if (score == scoreMax)
+
+            if (particle.GetComponent<ParticleSystem>().isPlaying)
             {
-                particle.SetActive(true);
-                particle.transform.position = new Vector3(0, 14, 0);
-                particle.GetComponent<ParticleSystem>().Play();
+                particletime += Time.unscaledDeltaTime;
+                if (particletime >= 10f)
+                {
+                    particle.GetComponent<ParticleSystem>().Stop();
+                }
             }
 
             if (ResultTime >= 1f)
@@ -147,8 +151,16 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 0f;
 
+            particle.transform.position = new Vector3(0, 14, 0);
+            particle.SetActive(true);
+            particle.GetComponent<ParticleSystem>().Play();
+
             // リザルトの表示を更新
             ClearText.text = "ゲームクリア！";
+        }
+        if (particle.GetComponent<ParticleSystem>().isPlaying)
+        {
+
         }
     }
 }

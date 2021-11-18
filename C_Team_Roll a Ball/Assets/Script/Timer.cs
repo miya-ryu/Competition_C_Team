@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour
         if (countdown > 1 && CountFlag == false)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Countdown);
+            audioSource.PlayOneShot(Countdown, 0.2f);
 
             Time.timeScale = 0f;
             countdown -= Time.unscaledDeltaTime;
@@ -45,6 +45,7 @@ public class Timer : MonoBehaviour
         }
         else if (CountText.text == "" && CountFlag == false)
         {
+            countdown = 0;
             countdown -= Time.unscaledDeltaTime;
             CountText.text = "スタート！";
         }
