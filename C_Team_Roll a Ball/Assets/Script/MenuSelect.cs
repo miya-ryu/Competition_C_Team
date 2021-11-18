@@ -10,7 +10,7 @@ public class MenuSelect : MonoBehaviour {
     private float Trigger;
 
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
@@ -20,11 +20,7 @@ public class MenuSelect : MonoBehaviour {
 
     void Start()
     {
-        if (DontDestroyEnabled)
-        {
-            // Sceneを遷移してもオブジェクトが消えないようにする
-            DontDestroyOnLoad(this);
-        }
+        
     }
 
     void Quit()
@@ -81,7 +77,13 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            audioSource.PlayOneShot(Cursor2); //音を鳴らす
+            if (DontDestroyEnabled)
+            {
+                // Sceneを遷移してもオブジェクトが消えないようにする
+                DontDestroyOnLoad(this);
+
+                audioSource.PlayOneShot(Cursor2); //音を鳴らす
+            }
 
             switch (number)
             {

@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wallsound : MonoBehaviour
 {
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Wall;
