@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Item, 0.2f);
+            audioSource.PlayOneShot(Item, 0.1f);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
