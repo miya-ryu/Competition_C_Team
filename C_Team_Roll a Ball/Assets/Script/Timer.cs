@@ -19,6 +19,8 @@ public class Timer : MonoBehaviour
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Countdown;
 
+    bool Onesound = false;
+
     public void Start()
     {
         CountFlag = false;
@@ -28,8 +30,12 @@ public class Timer : MonoBehaviour
     {
         if (countdown > 1 && CountFlag == false)
         {
-            //音を鳴らす
-            audioSource.PlayOneShot(Countdown, 0.2f);
+            if (!Onesound)
+            {
+                Onesound = true;
+                //音を鳴らす
+                audioSource.PlayOneShot(Countdown, 0.2f);
+            }
 
             Time.timeScale = 0f;
             countdown -= Time.unscaledDeltaTime;
