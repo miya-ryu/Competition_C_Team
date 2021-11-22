@@ -77,7 +77,7 @@ public class MenuSelect : MonoBehaviour {
             switch (number)
             {
                 case 0:
-                    SceneManager.LoadScene("SampleScene");
+                    SceneManager.LoadScene("Stage0");
                     break;
                 case 1:
                     SceneManager.LoadScene("Menu");

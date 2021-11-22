@@ -8,7 +8,7 @@ public class SceneSwap : MonoBehaviour{
     void Update(){
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Stage0");
         }
     }
 }
