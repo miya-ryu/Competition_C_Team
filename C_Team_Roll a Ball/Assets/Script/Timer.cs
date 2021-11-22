@@ -34,7 +34,7 @@ public class Timer : MonoBehaviour
             {
                 Onesound = true;
                 //音を鳴らす
-                audioSource.PlayOneShot(Countdown, 0.2f);
+                audioSource.PlayOneShot(Countdown, 0.5f);
             }
 
             Time.timeScale = 0f;

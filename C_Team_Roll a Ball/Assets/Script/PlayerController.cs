@@ -158,9 +158,5 @@ public class PlayerController : MonoBehaviour
             // リザルトの表示を更新
             ClearText.text = "ゲームクリア！";
         }
-        if (particle.GetComponent<ParticleSystem>().isPlaying)
-        {
-
-        }
     }
 }
