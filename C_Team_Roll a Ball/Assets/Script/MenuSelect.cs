@@ -18,11 +18,6 @@ public class MenuSelect : MonoBehaviour {
 
     public bool DontDestroyEnabled = true;
 
-    void Start()
-    {
-        
-    }
-
     void Quit()
     {
 #if UNITY_EDITOR
@@ -77,13 +72,7 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            if (DontDestroyEnabled)
-            {
-                // Sceneを遷移してもオブジェクトが消えないようにする
-                DontDestroyOnLoad(this);
-
-                audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
-            }
+            audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
 
             switch (number)
             {
