@@ -18,12 +18,6 @@ public class Rotate_Test3 : MonoBehaviour
         rb.AddRelativeTorque(new Vector3(hori, -hori, 0)*60f); //左右でy軸回転
         rb.AddRelativeTorque(new Vector3(0, -vert, vert)*60f); //上下でx軸回転
 
-        /*Test*/
-        //rb.AddRelativeTorque(new Vector3(hori, -hori, 0)); //左右でy軸回転
-        //rb.AddRelativeTorque(new Vector3(0, -vert, vert)); //上下でx軸回転
-        //rb.AddTorque(new Vector3(hori, -hori, 0) * 2f); //左右でy軸回転
-        //rb.AddTorque(new Vector3(0, -vert, vert) * 2f); //上下でx軸回転
-
         Transform mytransform = this.transform;
 
         Vector3 angles = mytransform.localEulerAngles;
@@ -55,8 +49,6 @@ public class Rotate_Test3 : MonoBehaviour
             {
 
                 angles.x = 30f;
-                //angles.y = 0;
-                //mytransform.localEulerAngles = angles;
 
 
             }
@@ -64,8 +56,6 @@ public class Rotate_Test3 : MonoBehaviour
             {
 
                 angles.x = -30f;
-                //angles.y = 0;
-                //mytransform.localEulerAngles = angles;
 
             }
 
@@ -77,16 +67,12 @@ public class Rotate_Test3 : MonoBehaviour
             {
 
                 angles.z = 30f;
-                //angles.y = 0;
-                //mytransform.localEulerAngles = angles;
 
             }
             else if (angles.z < -30f)
             {
 
                 angles.z = -30f;
-                //angles.y = 0;
-                //mytransform.localEulerAngles = angles;
 
             }
 
@@ -104,10 +90,6 @@ public class Rotate_Test3 : MonoBehaviour
         var forward = transform.TransformVector(Vector3.forward);
         var horizontal_forward = new Vector3(forward.x, 0f, forward.z).normalized;
         rb.AddTorque(Vector3.Cross(forward, horizontal_forward)*5f);
-
-        ///*機体を前に発進させるエンジン*/
-        //var force = (rb.mass * rb.drag * target_kmph_ / 3.6f) / (1f - rb.drag * Time.fixedDeltaTime);   //ある終端そくどに向かうための力を求める！
-        //rb.AddRelativeForce(new Vector3(0f, 0f, force));
     }
 
 }

@@ -4,7 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - item
+  - Item
+  - Ball
+  - Wall
+  - Floor
+  - TurboItem
+  - DeletePanel
+  - enemy
   layers:
   - Default
   - TransparentFX
