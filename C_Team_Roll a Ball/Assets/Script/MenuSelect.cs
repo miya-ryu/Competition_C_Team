@@ -10,22 +10,13 @@ public class MenuSelect : MonoBehaviour {
     private float Trigger;
 
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
     [SerializeField] public AudioClip Cursor2;
 
     public bool DontDestroyEnabled = true;
-
-    void Start()
-    {
-        if (DontDestroyEnabled)
-        {
-            // Sceneを遷移してもオブジェクトが消えないようにする
-            DontDestroyOnLoad(this);
-        }
-    }
 
     void Quit()
     {
@@ -48,7 +39,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Cursor1);
+            audioSource.PlayOneShot(Cursor1, 0.2f);
 
             number--;
             pos.y += 45;
@@ -63,7 +54,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Cursor1);
+            audioSource.PlayOneShot(Cursor1, 0.2f);
 
             number++;
             pos.y -= 45;
@@ -81,19 +72,67 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            audioSource.PlayOneShot(Cursor2); //音を鳴らす
+            audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
 
-            switch (number)
+            if(SceneManager.GetActiveScene().name == "Stage0")
             {
-                case 0:
-                    SceneManager.LoadScene("SampleScene");
-                    break;
-                case 1:
-                    SceneManager.LoadScene("Menu");
-                    break;
-                case 2:
-                    Quit();
-                    break;
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage0");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "Stage1")
+            {
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage1");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "Stage2")
+            {
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage2");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "Stage3")
+            {
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage3");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
             }
         }
     }
