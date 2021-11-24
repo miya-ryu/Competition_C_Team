@@ -4,6 +4,7 @@ ScriptsOnlyBuild:
     - ButtonFunction
     - FrameLate
     - ItemParticle
+    - Levitating
     - MenuSelect
     - ParticleRotation
     - PlayerController
@@ -166,6 +167,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 14540}
     - Class: 114
       Script: {instanceID: 14654}
+    - Class: 114
+      Script: {instanceID: 16484}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1500,6 +1503,36 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: SampleInfo
+  - hash:
+      serializedVersion: 2
+      Hash: 02493766ba0d073bd9e5d602a5878d4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: iTween
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: MoveSample
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp-firstpass.dll
+    namespaceName: 
+    className: RotateSample
+  - hash:
+      serializedVersion: 2
+      Hash: 427d4758b74aaa27910ce8eeae61db1a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Levitating
   platform: 19
   scenePathNames:
   - Assets/Scenes/Menu.unity
