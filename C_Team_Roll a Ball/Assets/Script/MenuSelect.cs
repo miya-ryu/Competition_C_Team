@@ -74,17 +74,65 @@ public class MenuSelect : MonoBehaviour {
         {
             audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
 
-            switch (number)
+            if(SceneManager.GetActiveScene().name == "Stage0")
             {
-                case 0:
-                    SceneManager.LoadScene("Stage0");
-                    break;
-                case 1:
-                    SceneManager.LoadScene("Menu");
-                    break;
-                case 2:
-                    Quit();
-                    break;
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage0");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "Stage1")
+            {
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage1");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "Stage2")
+            {
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage2");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
+            }
+            if (SceneManager.GetActiveScene().name == "Stage3")
+            {
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage3");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Menu");
+                        break;
+                    case 2:
+                        Quit();
+                        break;
+                }
             }
         }
     }

@@ -8,6 +8,9 @@ TagManager:
   - Ball
   - Wall
   - Floor
+  - TurboItem
+  - DeletePanel
+  - enemy
   layers:
   - Default
   - TransparentFX
