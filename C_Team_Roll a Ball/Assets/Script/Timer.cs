@@ -14,10 +14,12 @@ public class Timer : MonoBehaviour
     PlayerController gg;
 
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Countdown;
+
+    bool Onesound = false;
 
     public void Start()
     {
@@ -28,8 +30,12 @@ public class Timer : MonoBehaviour
     {
         if (countdown > 1 && CountFlag == false)
         {
-            //音を鳴らす
-            audioSource.PlayOneShot(Countdown);
+            if (!Onesound)
+            {
+                Onesound = true;
+                //音を鳴らす
+                audioSource.PlayOneShot(Countdown, 1f);
+            }
 
             Time.timeScale = 0f;
             countdown -= Time.unscaledDeltaTime;
@@ -45,6 +51,7 @@ public class Timer : MonoBehaviour
         }
         else if (CountText.text == "" && CountFlag == false)
         {
+            countdown = 0;
             countdown -= Time.unscaledDeltaTime;
             CountText.text = "スタート！";
         }

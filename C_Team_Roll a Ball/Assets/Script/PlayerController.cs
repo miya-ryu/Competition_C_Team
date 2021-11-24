@@ -25,18 +25,34 @@ public class PlayerController : MonoBehaviour
     public static float CountTimeM;
     public static float ResultTime;
 
-    [SerializeField] GameObject resultPanel;
+    [SerializeField] GameObject resultPanel = null;
 
     public GameObject retryUIPrefab;
     public GameObject retryUIInstance;
 
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
+    [SerializeField] public AudioClip Speed;
 
-    GameObject particle;
+    // Particle のオブジェクト
+    [SerializeField] public GameObject particle;
+    float particletime;
+
+    public float turboforce = 1f;
+    public float turbotime;
+    public float turbomax = 7.5f;
+    bool turboflag;
+    Vector3 turbo;
+
+    //トゲトゲのオブジェクト
+    float enemyTime;
+    public float enemyTimer = 10f;
+    bool enemy;
+
+    public GameObject Panel;
 
     void Start()
     {
@@ -61,11 +77,18 @@ public class PlayerController : MonoBehaviour
         CountTimeText.text = "";
         ResultGuide.text = "";
 
-        Effect();
+        // Particle の取得と非表示
         particle = GameObject.Find("Paper");
         particle.SetActive(false);
+        particletime = 0;
+        turbotime = 0;
+        turboflag = false;
+
+        //トゲトゲのオブジェクト
+        enemyTime = enemyTimer;
+        enemy = false;
     }
-    
+
     void FixedUpdate()
     {
         if (CountTime >= 60f)
@@ -77,6 +100,33 @@ public class PlayerController : MonoBehaviour
         {
             CountTime += Time.deltaTime;
         }
+
+        if (turboflag)
+        {
+            turbotime += Time.deltaTime;
+            if (turbotime >= turbomax && turboflag)
+            {
+                turbo = rb.velocity;
+                rb.velocity = new Vector3(turbo.x / turboforce, turbo.y / turboforce, turbo.z / turboforce);
+                turbotime = 0;
+                turboflag = false;
+            }
+        }
+
+        if (enemy == true)
+        {
+            if (enemyTime > 0)
+            {
+                Debug.Log(enemyTime);
+                rb.velocity = Vector3.zero;
+                enemyTime -= Time.deltaTime;
+            }
+            else if (enemyTime < 0)
+            {
+                enemy = false;
+                enemyTime = enemyTimer;
+            }
+        }
     }
     
     // 玉が他のオブジェクトにぶつかった時に呼び出される
@@ -86,7 +136,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Item"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Item);
+            audioSource.PlayOneShot(Item, 0.3f);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
@@ -97,6 +147,28 @@ public class PlayerController : MonoBehaviour
             // UI の表示を更新します
             SetCountText();
         }
+
+        //ぶつかったオブジェクトがターボアイテムだった場合
+        if (other.gameObject.CompareTag("TurboItem"))
+        {
+            //音を鳴らす(sound1)
+            audioSource.PlayOneShot(Speed, 0.3f);
+
+            // その収集アイテムを非表示にします
+            other.gameObject.SetActive(false);
+
+            turbotime = 0;
+            turbo = rb.velocity;
+            turboflag = true;
+            rb.velocity = new Vector3(turbo.x * turboforce, turbo.y * turboforce, turbo.z * turboforce);
+        }
+
+        //ぶつかったオブジェクトがエネミーだった場合
+        if (other.gameObject.CompareTag("enemy"))
+        {
+            enemy = true;
+            other.gameObject.SetActive(false);
+        }
     }
 
     void Update()
@@ -104,9 +176,16 @@ public class PlayerController : MonoBehaviour
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
-            particle.transform.position = new Vector3(0, 14, 0);
-            particle.SetActive(true);
-            particle.GetComponent<ParticleSystem>().Play();
+
+            if (particle.GetComponent<ParticleSystem>().isPlaying)
+            {
+                particletime += Time.unscaledDeltaTime;
+                if (particletime >= 10f)
+                {
+                    particle.GetComponent<ParticleSystem>().Stop();
+                }
+            }
+
             if (ResultTime >= 1f)
             {
                 resultPanel.SetActive(true);
@@ -141,16 +220,12 @@ public class PlayerController : MonoBehaviour
         {
             Time.timeScale = 0f;
 
+            particle.transform.position = new Vector3(0, 14, 0);
+            particle.SetActive(true);
+            particle.GetComponent<ParticleSystem>().Play();
+
             // リザルトの表示を更新
             ClearText.text = "ゲームクリア！";
-        }
-    }
-
-    void Effect()
-    {
-        if(score >= scoreMax)
-        {
-            
         }
     }
 }

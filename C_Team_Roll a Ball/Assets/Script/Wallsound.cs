@@ -5,7 +5,7 @@ using UnityEngine;
 public class Wallsound : MonoBehaviour
 {
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Wall;
@@ -16,7 +16,7 @@ public class Wallsound : MonoBehaviour
         if (other.gameObject.CompareTag("Ball"))
         {
             //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Wall);
+            audioSource.PlayOneShot(Wall, 0.5f);
         }
     }
 }
