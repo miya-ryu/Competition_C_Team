@@ -4028,8 +4028,8 @@ GameObject:
   - component: {fileID: 1973211367}
   - component: {fileID: 1973211371}
   - component: {fileID: 1973211372}
-  - component: {fileID: 1973211373}
   - component: {fileID: 1973211374}
+  - component: {fileID: 1973211373}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -4157,12 +4157,12 @@ MonoBehaviour:
   audioSource: {fileID: 1973211373}
   Item: {fileID: 8300000, guid: 08e02091cf5f2ed448a16f9ece82da6c, type: 3}
   Speed: {fileID: 8300000, guid: cfd8aadb4f9899b4caf3309fdcce2ed9, type: 3}
+  toge: {fileID: 8300000, guid: e14a52e673cc0da4483dee090e7dd671, type: 3}
   particle: {fileID: 2843853815674453113}
   turboforce: 2
   turbotime: 0
   turbomax: 7.5
   enemyTimer: 1.5
-  Panel: {fileID: 0}
 --- !u!82 &1973211373
 AudioSource:
   m_ObjectHideFlags: 0
@@ -9671,5 +9671,6 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6002638670633982431, guid: 61a9127a196e93c4e99836e6ae13456d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 61a9127a196e93c4e99836e6ae13456d, type: 3}

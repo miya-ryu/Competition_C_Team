@@ -39,7 +39,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Cursor1, 0.2f);
+            audioSource.PlayOneShot(Cursor1, 0.1f);
 
             number--;
             pos.y += 45;
@@ -54,7 +54,7 @@ public class MenuSelect : MonoBehaviour {
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Cursor1, 0.2f);
+            audioSource.PlayOneShot(Cursor1, 0.1f);
 
             number++;
             pos.y -= 45;
