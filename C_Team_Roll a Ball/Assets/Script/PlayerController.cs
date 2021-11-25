@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Item;
     [SerializeField] public AudioClip Speed;
+    [SerializeField] public AudioClip toge;
 
     // Particle のオブジェクト
     [SerializeField] public GameObject particle;
@@ -52,7 +53,8 @@ public class PlayerController : MonoBehaviour
     public float enemyTimer = 10f;
     bool enemy;
 
-    public GameObject Panel;
+    //高さの範囲
+    private Vector3 height;
 
     void Start()
     {
@@ -117,7 +119,6 @@ public class PlayerController : MonoBehaviour
         {
             if (enemyTime > 0)
             {
-                Debug.Log(enemyTime);
                 rb.velocity = Vector3.zero;
                 enemyTime -= Time.deltaTime;
             }
@@ -135,8 +136,8 @@ public class PlayerController : MonoBehaviour
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
         {
-            //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Item, 0.3f);
+            //音を鳴らす
+            audioSource.PlayOneShot(Item, 0.2f);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
@@ -151,8 +152,8 @@ public class PlayerController : MonoBehaviour
         //ぶつかったオブジェクトがターボアイテムだった場合
         if (other.gameObject.CompareTag("TurboItem"))
         {
-            //音を鳴らす(sound1)
-            audioSource.PlayOneShot(Speed, 0.3f);
+            //音を鳴らす
+            audioSource.PlayOneShot(Speed, 0.2f);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
@@ -166,6 +167,9 @@ public class PlayerController : MonoBehaviour
         //ぶつかったオブジェクトがエネミーだった場合
         if (other.gameObject.CompareTag("enemy"))
         {
+            //音を鳴らす
+            audioSource.PlayOneShot(toge, 0.5f);
+
             enemy = true;
             other.gameObject.SetActive(false);
         }
@@ -173,6 +177,20 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        height = this.GetComponent<Transform>().position;
+
+        if((height.y <= -15.0f) || (height.y >= 8.0f))
+        {
+            //GameObjectのベクトルを読み込む
+            Vector3 pos = GameObject.Find("Ball").transform.position;
+
+            //GameObjectのベクトルを任意の位置に変更
+            GameObject.Find("Ball").transform.position = new Vector3(0f, 2.5f, 0f);
+
+            //GameObjectがもつベクトル、回転を全て0にする
+            GameObject.Find("Floor").transform.rotation = Quaternion.identity;
+        }
+
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
