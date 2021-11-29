@@ -136,24 +136,42 @@ public class PlayerController : MonoBehaviour
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
         {
-            //音を鳴らす
-            audioSource.PlayOneShot(Item, 0.2f);
+            if(score <= 11)
+            {
+                //音を鳴らす
+                audioSource.PlayOneShot(Item, 0.2f);
 
-            // その収集アイテムを非表示にします
-            other.gameObject.SetActive(false);
-            
-            // スコアを加算します
-            score = score + 1;
-            
-            // UI の表示を更新します
-            SetCountText();
+                // その収集アイテムを非表示にします
+                other.gameObject.SetActive(false);
+
+                // スコアを加算します
+                score = score + 1;
+
+                // UI の表示を更新します
+                SetCountText();
+            }
+
+            if (score == 12)
+            {
+                //音を鳴らす
+                audioSource.PlayOneShot(Item, 2f);
+
+                // その収集アイテムを非表示にします
+                other.gameObject.SetActive(false);
+
+                // スコアを加算します
+                score = score + 1;
+
+                // UI の表示を更新します
+                SetCountText();
+            }
         }
 
         //ぶつかったオブジェクトがターボアイテムだった場合
         if (other.gameObject.CompareTag("TurboItem"))
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Speed, 0.2f);
+            audioSource.PlayOneShot(Speed, 0.3f);
 
             // その収集アイテムを非表示にします
             other.gameObject.SetActive(false);
@@ -168,7 +186,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("enemy"))
         {
             //音を鳴らす
-            audioSource.PlayOneShot(toge, 0.5f);
+            audioSource.PlayOneShot(toge, 0.8f);
 
             enemy = true;
             other.gameObject.SetActive(false);
@@ -179,6 +197,7 @@ public class PlayerController : MonoBehaviour
     {
         height = this.GetComponent<Transform>().position;
 
+        //高さが -15～8 の範囲からずれたら
         if((height.y <= -15.0f) || (height.y >= 8.0f))
         {
             //GameObjectのベクトルを読み込む
@@ -186,11 +205,9 @@ public class PlayerController : MonoBehaviour
 
             //GameObjectのベクトルを任意の位置に変更
             GameObject.Find("Ball").transform.position = new Vector3(0f, 2.5f, 0f);
-
-            //GameObjectがもつベクトル、回転を全て0にする
-            GameObject.Find("Floor").transform.rotation = Quaternion.identity;
         }
 
+        //スコアが上限に達した場合
         if (score >= scoreMax)
         {
             ResultTime += Time.unscaledDeltaTime;
