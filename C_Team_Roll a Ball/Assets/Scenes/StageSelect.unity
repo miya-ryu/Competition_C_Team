@@ -577,7 +577,6 @@ GameObject:
   - component: {fileID: 1785414724}
   - component: {fileID: 1785414727}
   - component: {fileID: 1785414726}
-  - component: {fileID: 1785414725}
   - component: {fileID: 1785414728}
   - component: {fileID: 1785414729}
   m_Layer: 5
@@ -606,22 +605,6 @@ RectTransform:
   m_AnchoredPosition: {x: -500, y: 215}
   m_SizeDelta: {x: 123.4, y: 143.6}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1785414725
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1785414723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc7a6b03cc7d0b14585ba61ef76dd934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
-  Cursor1: {fileID: 0}
-  Cursor2: {fileID: 0}
-  DontDestroyEnabled: 1
 --- !u!114 &1785414726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -672,7 +655,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1785414729}
   Cursor1: {fileID: 8300000, guid: f40ead258360442438002de738bdac6a, type: 3}
-  Cursor2: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
   DontDestroyEnabled: 1
 --- !u!82 &1785414729
 AudioSource:

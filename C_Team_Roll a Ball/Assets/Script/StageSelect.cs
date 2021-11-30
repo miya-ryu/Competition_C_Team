@@ -15,18 +15,17 @@ public class StageSelect : MonoBehaviour {
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
-    [SerializeField] public AudioClip Cursor2;
 
     public bool DontDestroyEnabled = true;
 
-    void Quit()
-    {
-#if UNITY_EDITOR
-      UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_STANDALONE
-      UnityEngine.Application.Quit();
-#endif
-    }
+//    void Quit()
+//    {
+//#if UNITY_EDITOR
+//      UnityEditor.EditorApplication.isPlaying = false;
+//#elif UNITY_STANDALONE
+//      UnityEngine.Application.Quit();
+//#endif
+//    }
 
     void Update() {
         var ver = Input.GetAxis("Vertical");
@@ -44,53 +43,52 @@ public class StageSelect : MonoBehaviour {
             //音を鳴らす
             audioSource.PlayOneShot(Cursor1, 0.1f);
 
-            number -= 3;
-            pos.y = -80;
+            number--;
+            pos.y += 200;
 
             if (number < 0)
             {
-                number += 3;
-                pos.y = 215;
+                number = 1;
+                pos.y -= 200;
             }
         }
 
-        //down
         if (0 > Input.GetAxisRaw("Vertical") && Trigger == 0.0f)
         {
             //音を鳴らす
             audioSource.PlayOneShot(Cursor1, 0.1f);
 
-            number += 3;
-            pos.y = 215;
+            number++;
+            pos.y -= 200;
 
-            if (number > 5)
+            if (number > 1)
             {
-                number -= 3;
-                pos.y = -80;
+                number = 0;
+                pos.y += 200;
             }
         }
 
-        if (0 < Input.GetAxisRaw("Horizontal") && Trigger1 == 0.0f){
-            //音を鳴らす
-            audioSource.PlayOneShot(Cursor1, 0.1f);
+        //if (0 < Input.GetAxisRaw("Horizontal") && Trigger1 == 0.0f){
+        //    //音を鳴らす
+        //    audioSource.PlayOneShot(Cursor1, 0.1f);
 
-            if (number == 0 || number + 3  == 3)
-            { 
-                number += 2;
-                pos.x += 3 * 295;
-            }
-        }
+        //    if (number == 0 || number + 3  == 3)
+        //    { 
+        //        number += 2;
+        //        pos.x += 3 * 295;
+        //    }
+        //}
 
-        if (0 > Input.GetAxisRaw("Horizontal") && Trigger1 == 0.0f){
-            //音を鳴らす
-            audioSource.PlayOneShot(Cursor1, 0.1f);
+        //if (0 > Input.GetAxisRaw("Horizontal") && Trigger1 == 0.0f){
+        //    //音を鳴らす
+        //    audioSource.PlayOneShot(Cursor1, 0.1f);
 
-            if (number == 2 || number + 3 == 5)
-            {
-                number -= 2;
-                pos.x -= 3 * 295;
-            }
-        }
+        //    if (number == 2 || number + 3 == 5)
+        //    {
+        //        number -= 2;
+        //        pos.x -= 3 * 295;
+        //    }
+        //}
 
         myTransform.position = pos;  // 座標を設定
 
@@ -99,8 +97,6 @@ public class StageSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
-
             switch(number){
                 case 0: 
                     SceneManager.LoadScene("Stage0");
