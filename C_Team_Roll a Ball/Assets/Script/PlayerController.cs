@@ -197,8 +197,8 @@ public class PlayerController : MonoBehaviour
     {
         height = this.GetComponent<Transform>().position;
 
-        //高さが -15～8 の範囲からずれたら
-        if((height.y <= -15.0f) || (height.y >= 8.0f))
+        //高さが -30～20 の範囲からずれたら
+        if((height.y <= -30.0f) || (height.y >= 20.0f))
         {
             //GameObjectのベクトルを読み込む
             Vector3 pos = GameObject.Find("Ball").transform.position;

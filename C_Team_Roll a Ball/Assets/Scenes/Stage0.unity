@@ -1076,6 +1076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd07383005e6fa499762fb531050a47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DontDestroyEnabled: 1
   audioSource: {fileID: 279908743}
   Cursor: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
 --- !u!4 &279908745
@@ -1086,7 +1087,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279908742}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -207.29828, y: -142.28604, z: -54.226055}
+  m_LocalPosition: {x: 0, y: 0, z: -34.37}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

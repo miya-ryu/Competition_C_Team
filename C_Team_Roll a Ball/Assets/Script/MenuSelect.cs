@@ -72,8 +72,6 @@ public class MenuSelect : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
-
             if(SceneManager.GetActiveScene().name == "Stage0")
             {
                 switch (number)
