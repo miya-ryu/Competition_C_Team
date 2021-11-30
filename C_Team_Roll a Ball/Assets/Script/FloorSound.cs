@@ -10,10 +10,10 @@ public class FloorSound : MonoBehaviour
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Floor;
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
         //接地面のオブジェクトのタグが Floor だったら
-        if (collision.gameObject.CompareTag("Floor"))
+        if (collider.gameObject.CompareTag("Floor"))
         {
             //音を鳴らす
             audioSource.PlayOneShot(Floor);
