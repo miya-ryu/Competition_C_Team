@@ -608,7 +608,7 @@ MonoBehaviour:
   Swap: 0
   DontDestroyEnabled: 1
   audioSource: {fileID: 1429794172}
-  Cursor: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
+  Cursor: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
 --- !u!82 &1429794172
 AudioSource:
   m_ObjectHideFlags: 0
