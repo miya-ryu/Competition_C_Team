@@ -35,8 +35,6 @@ public class MenuSelect : MonoBehaviour
 
     void Update()
     {
-        var ver = Input.GetAxis("Vertical");
-
         // transformを取得
         Transform myTransform = this.transform;
 

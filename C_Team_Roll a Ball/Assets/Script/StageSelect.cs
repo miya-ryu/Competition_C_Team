@@ -9,17 +9,16 @@ public class StageSelect : MonoBehaviour
 
     private float Trigger;
     private float Trigger1;
-    
+
+    public bool Select;
+    public bool DontDestroyEnabled = true;
+
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource = null;
     
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
     [SerializeField] public AudioClip Cursor2;
-
-    public bool DontDestroyEnabled = true;
-
-    public bool Swap;
 
     private void Start()
     {
@@ -28,13 +27,11 @@ public class StageSelect : MonoBehaviour
             // Sceneを遷移してもオブジェクトが消えないようにする
             DontDestroyOnLoad(this);
         }
-        Swap = false;
+        Select = false;
     }
 
     void Update()
-    {
-        var hori = Input.GetAxis("Horizontal");
-        
+    {   
         // transformを取得
         Transform myTransform = this.transform;
 
@@ -73,47 +70,43 @@ public class StageSelect : MonoBehaviour
         myTransform.position = pos;  // 座標を設定
         Trigger1 = Input.GetAxisRaw("Horizontal");
         
-        Debug.Log(number);
-        
-        if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
+        if (Select)
         {
-            if (Swap)
+            if (audioSource.isPlaying)
             {
-                if (audioSource.isPlaying)
-                {
-                }
-                else
-                {
-                    Swap = false;
-
-                    switch (number)
-                    {
-                        case 0:
-                            SceneManager.LoadScene("Stage0");
-                            break;
-                        case 1:
-                            SceneManager.LoadScene("Stage1");
-                            break;
-                        case 2:
-                            SceneManager.LoadScene("Stage2");
-                            break;
-                        case 3:
-                            SceneManager.LoadScene("Stage3");
-                            break;
-                    }
-                }
             }
             else
             {
-                SelectSound();
+                Select = false;
+
+                switch (number)
+                {
+                    case 0:
+                        SceneManager.LoadScene("Stage0");
+                        break;
+                    case 1:
+                        SceneManager.LoadScene("Stage1");
+                        break;
+                    case 2:
+                        SceneManager.LoadScene("Stage2");
+                        break;
+                    case 3:
+                        SceneManager.LoadScene("Stage3");
+                        break;
+                }
             }
         }
+        else
+        {
+            SelectSound();
+        }
     }
+
     void SelectSound()
     {
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            Swap = true;
+            Select = true;
             audioSource.PlayOneShot(Cursor2, 0.1f); //音を鳴らす
         }
     }
