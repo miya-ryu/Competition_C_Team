@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -136,34 +137,63 @@ public class PlayerController : MonoBehaviour
         // ぶつかったオブジェクトが収集アイテムだった場合
         if (other.gameObject.CompareTag("Item"))
         {
-            if(score <= 11)
+            if (SceneManager.GetActiveScene().name == "Stage3")
             {
-                //音を鳴らす
-                audioSource.PlayOneShot(Item, 0.2f);
+                if (score <= 23)
+                {
+                    //音を鳴らす
+                    audioSource.PlayOneShot(Item, 0.2f);
 
-                // その収集アイテムを非表示にします
-                other.gameObject.SetActive(false);
+                    // その収集アイテムを非表示にします
+                    other.gameObject.SetActive(false);
 
-                // スコアを加算します
-                score = score + 1;
+                    // スコアを加算します
+                    score = score + 1;
 
-                // UI の表示を更新します
-                SetCountText();
+                    // UI の表示を更新します
+                    SetCountText();
+                }
+
+                if (score == 24)
+                {
+                    //音を鳴らす
+                    audioSource.PlayOneShot(Item, 2f);
+
+                    // その収集アイテムを非表示にします
+                    other.gameObject.SetActive(false);
+
+                    // UI の表示を更新します
+                    SetCountText();
+                }
             }
-
-            if (score == 12)
+            else
             {
-                //音を鳴らす
-                audioSource.PlayOneShot(Item, 2f);
+                if (score <= 11)
+                {
+                    //音を鳴らす
+                    audioSource.PlayOneShot(Item, 0.2f);
 
-                // その収集アイテムを非表示にします
-                other.gameObject.SetActive(false);
+                    // その収集アイテムを非表示にします
+                    other.gameObject.SetActive(false);
 
-                // スコアを加算します
-                score = score + 1;
+                    // スコアを加算します
+                    score = score + 1;
 
-                // UI の表示を更新します
-                SetCountText();
+                    // UI の表示を更新します
+                    SetCountText();
+                }
+
+                if (score == 12)
+                {
+                    //音を鳴らす
+                    audioSource.PlayOneShot(Item, 2f);
+
+                    // その収集アイテムを非表示にします
+                    other.gameObject.SetActive(false);
+
+                    // UI の表示を更新します
+                    SetCountText();
+                }
             }
         }
 
