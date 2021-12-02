@@ -6,7 +6,7 @@ public class SerectSound : MonoBehaviour
     public bool DontDestroyEnabled = true;
 
     // 使用する AudioSource をアタッチ
-    [SerializeField] private AudioSource audioSource = null;
+    [SerializeField] public AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor;
@@ -15,12 +15,17 @@ public class SerectSound : MonoBehaviour
     PlayerController pc;
     ButtonFunction bt;
 
+    public bool soundflag;
+
     private void Start()
     {
         Pc = GameObject.Find("Ball");
         pc = Pc.GetComponent<PlayerController>();
         Bt = GameObject.Find("Main Camera");
         bt = Bt.GetComponent<ButtonFunction>();
+
+        soundflag = false;
+
         if (DontDestroyEnabled)
         {
             // Sceneを遷移してもオブジェクトが消えないようにする
@@ -30,9 +35,24 @@ public class SerectSound : MonoBehaviour
 
     void Update()
     {
-        if (Time.deltaTime == 0 && (pc.retryUIInstance != null || bt.menuUIInstance != null))
+        if (Time.deltaTime == 0 && (pc.retryUIInstance || bt.menuUIInstance))
         {
-            SelectSound();
+            if (soundflag)
+            {
+                if (audioSource.isPlaying)
+                {
+                    soundflag = true;
+                }
+                else
+                {
+                    soundflag = false;
+                }
+            }
+            else
+            {
+                soundflag = false;
+                SelectSound();
+            }
         }
     }
 
@@ -41,6 +61,7 @@ public class SerectSound : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
             audioSource.PlayOneShot(Cursor, 0.1f); //音を鳴らす
+            soundflag = true;
         }
     }
 }
