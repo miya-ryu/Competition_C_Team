@@ -18,7 +18,7 @@ public class SceneSwap : MonoBehaviour{
         if (DontDestroyEnabled)
         {
             // Sceneを遷移してもオブジェクトが消えないようにする
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
         }
 
         Swap = false;

@@ -4225,7 +4225,7 @@ MonoBehaviour:
   ResultScore: {fileID: 1471211731}
   ResultGuide: {fileID: 1851383745}
   score: 0
-  scoreMax: 12
+  scoreMax: 1
   resultPanel: {fileID: 1655259671}
   retryUIPrefab: {fileID: 3178118161515933602, guid: bae03896146f8e741954d4d040b2bb61,
     type: 3}
@@ -4669,6 +4669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198727372575530408, guid: 84e3b1f60efa0634eb7e34e0e91b1dc1,
+        type: 3}
+      propertyPath: m_Name
+      value: Change
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e3b1f60efa0634eb7e34e0e91b1dc1, type: 3}
@@ -9552,6 +9557,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178118161733418691, guid: bae03896146f8e741954d4d040b2bb61,
+        type: 3}
+      propertyPath: m_Name
+      value: Change
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae03896146f8e741954d4d040b2bb61, type: 3}
