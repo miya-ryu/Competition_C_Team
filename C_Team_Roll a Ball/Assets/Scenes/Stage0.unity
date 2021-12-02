@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 279908744}
   - component: {fileID: 279908743}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SelectSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,6 +1079,7 @@ MonoBehaviour:
   DontDestroyEnabled: 1
   audioSource: {fileID: 279908743}
   Cursor: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
+  soundflag: 0
 --- !u!4 &279908745
 Transform:
   m_ObjectHideFlags: 0
@@ -2088,7 +2089,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 1.3333334, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2105,7 +2106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819149552}
   m_LocalRotation: {x: 0.22190766, y: -0.6723862, z: 0.22265361, w: 0.67013365}
-  m_LocalPosition: {x: 13.640122, y: 12.646178, z: 0.045770876}
+  m_LocalPosition: {x: 13.640122, y: 12.646178, z: 0.045771234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224244869}
@@ -2232,6 +2233,7 @@ GameObject:
   - component: {fileID: 963194229}
   - component: {fileID: 963194230}
   - component: {fileID: 963194231}
+  - component: {fileID: 963194232}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2298,7 +2300,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.22190766, y: -0.6723862, z: 0.22265361, w: 0.67013365}
-  m_LocalPosition: {x: 13.640122, y: 12.646178, z: 0.045770876}
+  m_LocalPosition: {x: 13.640122, y: 12.646178, z: 0.045771234}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2366,6 +2368,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Rate: 60
+--- !u!114 &963194232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebd07383005e6fa499762fb531050a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DontDestroyEnabled: 1
+  audioSource: {fileID: 0}
+  Cursor: {fileID: 0}
+  soundflag: 0
 --- !u!1001 &1058627232
 PrefabInstance:
   m_ObjectHideFlags: 0
