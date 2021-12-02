@@ -2,26 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 public class MenuSelect : MonoBehaviour
 {
     public int number = 0;
     private float Trigger;
-
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource = null;
-
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
     [SerializeField] public AudioClip Cursor2;
-
-    public bool DontDestroyEnabled = true;
-    public bool audioflag = false;
     public bool sceneflag = false;
-
     GameObject sound;
     SerectSound serectsound;
-
+    GameObject Menu;
+    ButtonFunction menu;
+    GameObject Retry;
+    PlayerController retry;
     void Quit()
     {
 #if UNITY_EDITOR
@@ -29,11 +25,6 @@ public class MenuSelect : MonoBehaviour
 #elif UNITY_STANDALONE
       UnityEngine.Application.Quit();
 #endif
-    }
-    void SelectSound()
-    {
-        audioSource.PlayOneShot(Cursor2, 0.1f); //音を鳴らす
-        audioflag = true;
     }
     public void SceneSelect()
     {
@@ -100,31 +91,29 @@ public class MenuSelect : MonoBehaviour
         }
         /*音が鳴り終わってからシーンを切り替えるように改造↑*/
     }
-
     void Start()
     {
         sound = GameObject.Find("SelectSound");
         serectsound = sound.GetComponent<SerectSound>();
-        audioflag = false;
         sceneflag = false;
+        Menu = GameObject.Find("Main Camera");
+        menu = Menu.GetComponent<ButtonFunction>();
+        Retry = GameObject.Find("Ball");
+        retry = Retry.GetComponent<PlayerController>();
     }
-
     void Update()
     {
+        var ver = Input.GetAxis("Vertical");
         // transformを取得
         Transform myTransform = this.transform;
-
         // 座標を取得
         Vector3 pos = myTransform.position;
-
         if (0 < Input.GetAxisRaw("Vertical") && Trigger == 0.0f && sceneflag != true)
         {
             //音を鳴らす
             audioSource.PlayOneShot(Cursor1, 0.2f);
-
             number--;
             pos.y += 45;
-
             if (number < 0)
             {
                 number = 2;
@@ -135,23 +124,19 @@ public class MenuSelect : MonoBehaviour
         {
             //音を鳴らす
             audioSource.PlayOneShot(Cursor1, 0.2f);
-
             number++;
             pos.y -= 45;
-
             if (number > 2)
             {
                 number = 0;
                 pos.y += 3 * 45;
             }
         }
-
         myTransform.position = pos;  // 座標を設定
         Trigger = Input.GetAxisRaw("Vertical"); //カーソルの移動速度制御
-
         if (serectsound.soundflag)
         {
-            if (serectsound.audioSource.isPlaying)
+            if (serectsound.audioSource.isPlaying && (menu.menuUIInstance || retry.retryUIInstance))
             {
                 sceneflag = true;
             }
