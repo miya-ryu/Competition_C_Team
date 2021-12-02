@@ -57,8 +57,9 @@ public class PlayerController : MonoBehaviour
     //高さの範囲
     private Vector3 height;
 
-    GameObject Menu;
-    MenuSelect menu;
+    //GameObject Menu;
+    //MenuSelect menu;
+
 
     void Start()
     {
@@ -93,7 +94,6 @@ public class PlayerController : MonoBehaviour
         //トゲトゲのオブジェクト
         enemyTime = enemyTimer;
         enemy = false;
-
 
 
     }
@@ -259,14 +259,13 @@ public class PlayerController : MonoBehaviour
 
             if (ResultTime >= 1f)
             {
-                if (retryUIInstance)
+                if (retryUIInstance == false)
+                {
+                    resultPanel.SetActive(true);
+                }
+                else if(retryUIInstance)
                 {
                     resultPanel.SetActive(false);
-                }
-                else
-                {
-
-                    resultPanel.SetActive(true);
                 }
                 ResultTime = 1f;
                 ResultText.text = "ゲームリザルト";
@@ -276,10 +275,14 @@ public class PlayerController : MonoBehaviour
                 ClearText.text = "";
                 scoreText.text = "";
                 ResultGuide.text = "～B or X ボタンを押してください～";
-                if ((Input.GetKeyUp(KeyCode.JoystickButton1) || Input.GetKeyUp(KeyCode.JoystickButton2)) && retryUIInstance == false)
+                if ((Input.GetKeyUp(KeyCode.JoystickButton1)) || (Input.GetKeyUp(KeyCode.JoystickButton2)))
                 {
-                    retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
-                    if (Input.GetKeyDown(KeyCode.JoystickButton1) || (Input.GetKeyDown(KeyCode.JoystickButton2)) && retryUIInstance)
+                    if (retryUIInstance == false)
+                    {
+                        retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
+
+                    }
+                    if (Input.GetKeyDown(KeyCode.JoystickButton1) || (Input.GetKeyDown(KeyCode.JoystickButton2)))
                     {
                         Destroy(retryUIInstance);
                     }
