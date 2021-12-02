@@ -19,13 +19,13 @@ public class SerectSound : MonoBehaviour
         pc = Pc.GetComponent<PlayerController>();
         Bt = GameObject.Find("Main Camera");
         bt = Bt.GetComponent<ButtonFunction>();
-        Menu = GameObject.Find("Change1");
+        Menu = GameObject.Find("Change");
         menu = Menu.GetComponent<MenuSelect>();
         soundflag = false;
         if (DontDestroyEnabled)
         {
             // Sceneを遷移してもオブジェクトが消えないようにする
-            DontDestroyOnLoad(this);
+           //DontDestroyOnLoad(this);
         }
     }
     void Update()
