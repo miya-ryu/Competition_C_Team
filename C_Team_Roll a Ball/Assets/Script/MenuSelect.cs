@@ -4,21 +4,28 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class MenuSelect : MonoBehaviour
 {
-    int number = 0;
+    public int number = 0;
     private float Trigger;
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource = null;
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
+    [SerializeField] public AudioClip Cursor2;
     public bool sceneflag = false;
     GameObject sound;
     SerectSound serectsound;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
     GameObject Menu;
     ButtonFunction menu;
     GameObject Retry;
     PlayerController retry;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
     void Quit()
     {
 #if UNITY_EDITOR
@@ -94,15 +101,24 @@ public class MenuSelect : MonoBehaviour
     }
     void Start()
     {
-        sound = GameObject.Find("SelectSound");
+<<<<<<< HEAD
+        sound = GameObject.Find("Main Camera");
         serectsound = sound.GetComponent<SerectSound>();
         sceneflag = false;
 
+=======
+        sound = GameObject.Find("SelectSound");
+        serectsound = sound.GetComponent<SerectSound>();
+        sceneflag = false;
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
         Menu = GameObject.Find("Main Camera");
         menu = Menu.GetComponent<ButtonFunction>();
         Retry = GameObject.Find("Ball");
         retry = Retry.GetComponent<PlayerController>();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
     }
     void Update()
     {
@@ -146,7 +162,11 @@ public class MenuSelect : MonoBehaviour
         }
         else
         {
+<<<<<<< HEAD
             if (sceneflag /*&& (menu.menuUIInstance||retry.retryUIInstance)*/)
+=======
+            if (sceneflag)
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
             {
                 SceneSelect();
             }
