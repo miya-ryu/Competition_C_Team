@@ -6248,7 +6248,7 @@ MonoBehaviour:
   ResultScore: {fileID: 1471211731}
   ResultGuide: {fileID: 1851383745}
   score: 0
-  scoreMax: 24
+  scoreMax: 1
   resultPanel: {fileID: 1655259671}
   retryUIPrefab: {fileID: 3178118161515933602, guid: bae03896146f8e741954d4d040b2bb61,
     type: 3}
