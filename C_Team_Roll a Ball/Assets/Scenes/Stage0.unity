@@ -962,7 +962,7 @@ GameObject:
   - component: {fileID: 279908744}
   - component: {fileID: 279908743}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SelectSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1079,6 +1079,7 @@ MonoBehaviour:
   DontDestroyEnabled: 1
   audioSource: {fileID: 279908743}
   Cursor: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
+  soundflag: 0
 --- !u!4 &279908745
 Transform:
   m_ObjectHideFlags: 0
@@ -4294,7 +4295,7 @@ MonoBehaviour:
   ResultScore: {fileID: 1471211731}
   ResultGuide: {fileID: 1851383745}
   score: 0
-  scoreMax: 12
+  scoreMax: 1
   resultPanel: {fileID: 1655259671}
   retryUIPrefab: {fileID: 3178118161515933602, guid: bae03896146f8e741954d4d040b2bb61,
     type: 3}
