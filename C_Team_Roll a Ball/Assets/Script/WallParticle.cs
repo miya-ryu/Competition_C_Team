@@ -6,6 +6,30 @@ public class WallParticle : MonoBehaviour
 {
 	[SerializeField] private ParticleSystem particle = null;
 
+	//[SerializeField] int m_cacheCount = 1;
+
+	//ParticleSystem[] m_cache = default;
+
+	//int m_index = 5;
+
+	//void Start()
+	//{
+	//	System.Array.Resize(ref m_cache, m_cacheCount);
+	//	for (int i = 0; i < m_cacheCount; i++)
+	//	{
+	//		m_cache[i] = Instantiate(particle);
+	//	}
+	//}
+
+	//void Update()
+	//{
+	//	if (Input.GetButtonDown("Ball"))
+	//	{
+	//		m_cache[m_index].Play();
+	//		m_index = (m_index == m_cacheCount - 1) ? 0 : m_index + 1;
+	//	}
+	//}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.tag == "Wall")
