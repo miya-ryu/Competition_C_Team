@@ -20,7 +20,7 @@ public class WallParticle : MonoBehaviour
 			newParticle.Play();
 
 			// インスタンス化したパーティクルシステムのGameObjectを削除する。
-			Destroy(newParticle.gameObject, 0.5f);
+			Destroy(newParticle.gameObject, 3.5f);
 		}
 	}
 }

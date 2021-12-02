@@ -1078,7 +1078,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DontDestroyEnabled: 1
   audioSource: {fileID: 279908743}
-  Cursor: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
+  Cursor: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
 --- !u!4 &279908745
 Transform:
   m_ObjectHideFlags: 0
@@ -4527,7 +4527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1973211375}
-  Floor: {fileID: 8300000, guid: 0d248b52d0a1885438268586ce41becc, type: 3}
+  Floor: {fileID: 8300000, guid: 714c4d4649be5aa478d11a88338f537b, type: 3}
 --- !u!1001 &1989792978
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4848,6 +4848,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 198727372575530404, guid: 84e3b1f60efa0634eb7e34e0e91b1dc1,
+        type: 3}
+      propertyPath: Cursor2
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e3b1f60efa0634eb7e34e0e91b1dc1, type: 3}
@@ -9726,6 +9731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178118161733418688, guid: bae03896146f8e741954d4d040b2bb61,
+        type: 3}
+      propertyPath: Cursor2
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae03896146f8e741954d4d040b2bb61, type: 3}

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class SceneSwap : MonoBehaviour
 {
     public bool Swap;
@@ -33,7 +34,7 @@ public class SceneSwap : MonoBehaviour
             else
             {
                 Swap = false;
-                SceneManager.LoadScene("Stage0");
+                SceneManager.LoadScene("StageSelect");
             }
         }
         else

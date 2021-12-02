@@ -16,7 +16,7 @@ public class FloorSound : MonoBehaviour
         if (collider.gameObject.CompareTag("Floor"))
         {
             //音を鳴らす
-            audioSource.PlayOneShot(Floor);
+            audioSource.PlayOneShot(Floor, 1.5f);
         }
     }
 }
