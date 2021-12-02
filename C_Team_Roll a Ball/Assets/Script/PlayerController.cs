@@ -54,6 +54,10 @@ public class PlayerController : MonoBehaviour
 
     public GameObject Panel;
 
+    //GameObject Menu;
+    //MenuSelect menu;
+
+
     void Start()
     {
         //SE の Component を取得
@@ -87,6 +91,8 @@ public class PlayerController : MonoBehaviour
         //トゲトゲのオブジェクト
         enemyTime = enemyTimer;
         enemy = false;
+
+
     }
 
     void FixedUpdate()
@@ -188,7 +194,14 @@ public class PlayerController : MonoBehaviour
 
             if (ResultTime >= 1f)
             {
-                resultPanel.SetActive(true);
+                if (retryUIInstance == false)
+                {
+                    resultPanel.SetActive(true);
+                }
+                else if(retryUIInstance)
+                {
+                    resultPanel.SetActive(false);
+                }
                 ResultTime = 1f;
                 ResultText.text = "ゲームリザルト";
                 ResultScore.text = "取得したコイン　" + score.ToString() + "枚";
@@ -199,7 +212,11 @@ public class PlayerController : MonoBehaviour
                 ResultGuide.text = "～B or X ボタンを押してください～";
                 if ((Input.GetKeyUp(KeyCode.JoystickButton1)) || (Input.GetKeyUp(KeyCode.JoystickButton2)))
                 {
-                    retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
+                    if (retryUIInstance == false)
+                    {
+                        retryUIInstance = GameObject.Instantiate(retryUIPrefab) as GameObject;
+
+                    }
                     if (Input.GetKeyDown(KeyCode.JoystickButton1) || (Input.GetKeyDown(KeyCode.JoystickButton2)))
                     {
                         Destroy(retryUIInstance);

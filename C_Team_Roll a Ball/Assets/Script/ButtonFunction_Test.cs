@@ -11,8 +11,9 @@ public class ButtonFunction_Test : MonoBehaviour
 	private GameObject menuUIPrefab;
 	//　ポーズUIのインスタンス
 	private GameObject menuUIInstance;
-	// Update is called once per frame
-	void Update()
+    // Update is called once per frame
+
+    void Update()
 	{
 		//Spaceキーが押されたら
 		if (Input.GetKeyDown(KeyCode.JoystickButton7) || Input.GetKeyDown(KeyCode.Space))
