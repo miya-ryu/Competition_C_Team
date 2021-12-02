@@ -1095,11 +1095,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59f74ca3330a99a44b40a5758f9b79d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Select: 0
+  DontDestroyEnabled: 1
   audioSource: {fileID: 1488219772}
   Cursor1: {fileID: 8300000, guid: f40ead258360442438002de738bdac6a, type: 3}
   Cursor2: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
-  DontDestroyEnabled: 1
-  Swap: 0
 --- !u!1 &1493747545
 GameObject:
   m_ObjectHideFlags: 0

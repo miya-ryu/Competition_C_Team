@@ -4853,7 +4853,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Cursor2
       value: 
-      objectReference: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e3b1f60efa0634eb7e34e0e91b1dc1, type: 3}
 --- !u!199 &2843853815674453112
@@ -9731,6 +9731,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178118161733418688, guid: bae03896146f8e741954d4d040b2bb61,
+        type: 3}
+      propertyPath: Cursor2
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae03896146f8e741954d4d040b2bb61, type: 3}
