@@ -121,6 +121,8 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
+=======
 --- !u!1 &145801797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1441,3 +1443,4 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102512057}
   m_CullTransparentMesh: 0
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840

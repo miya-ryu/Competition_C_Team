@@ -14,10 +14,18 @@ public class MenuSelect : MonoBehaviour
     public bool sceneflag = false;
     GameObject sound;
     SerectSound serectsound;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
     GameObject Menu;
     ButtonFunction menu;
     GameObject Retry;
     PlayerController retry;
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
     void Quit()
     {
 #if UNITY_EDITOR
@@ -93,13 +101,24 @@ public class MenuSelect : MonoBehaviour
     }
     void Start()
     {
+<<<<<<< HEAD
+        sound = GameObject.Find("Main Camera");
+        serectsound = sound.GetComponent<SerectSound>();
+        sceneflag = false;
+
+=======
         sound = GameObject.Find("SelectSound");
         serectsound = sound.GetComponent<SerectSound>();
         sceneflag = false;
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
         Menu = GameObject.Find("Main Camera");
         menu = Menu.GetComponent<ButtonFunction>();
         Retry = GameObject.Find("Ball");
         retry = Retry.GetComponent<PlayerController>();
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
     }
     void Update()
     {
@@ -143,7 +162,11 @@ public class MenuSelect : MonoBehaviour
         }
         else
         {
+<<<<<<< HEAD
+            if (sceneflag /*&& (menu.menuUIInstance||retry.retryUIInstance)*/)
+=======
             if (sceneflag)
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
             {
                 SceneSelect();
             }
