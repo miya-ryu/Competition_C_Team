@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 1488219773}
   - component: {fileID: 1488219772}
   m_Layer: 0
-  m_Name: Image (4)
+  m_Name: SelectSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1100,6 +1100,7 @@ MonoBehaviour:
   audioSource: {fileID: 1488219772}
   Cursor1: {fileID: 8300000, guid: f40ead258360442438002de738bdac6a, type: 3}
   Cursor2: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
+  stageflag: 1
 --- !u!1 &1493747545
 GameObject:
   m_ObjectHideFlags: 0
