@@ -995,7 +995,11 @@ MonoBehaviour:
   Swap: 0
   DontDestroyEnabled: 1
   audioSource: {fileID: 1429794172}
+<<<<<<< HEAD
   Cursor: {fileID: 8300000, guid: 28a04a27214712e4ca185a93a38c1631, type: 3}
+=======
+  Cursor: {fileID: 8300000, guid: 11f4fd26df0d70440b17132ac0d886ca, type: 3}
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
 --- !u!82 &1429794172
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1007,7 +1011,11 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
+<<<<<<< HEAD
   m_PlayOnAwake: 1
+=======
+  m_PlayOnAwake: 0
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1092,6 +1100,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+<<<<<<< HEAD
 --- !u!1 &1614063704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1240,6 +1249,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2026705985}
   m_CullTransparentMesh: 0
+=======
+>>>>>>> 2ed9ad0429bf089cf429d3413200390ceddd7840
 --- !u!1 &2052542100
 GameObject:
   m_ObjectHideFlags: 0

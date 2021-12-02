@@ -8,7 +8,6 @@ public class WallParticle : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		// 当たった相手が"Player"タグを持っていたら
 		if (other.gameObject.tag == "Wall")
 		{
 			// パーティクルシステムのインスタンスを生成する。
@@ -21,7 +20,7 @@ public class WallParticle : MonoBehaviour
 			newParticle.Play();
 
 			// インスタンス化したパーティクルシステムのGameObjectを削除する。
-			Destroy(newParticle.gameObject, 0.5f);
+			Destroy(newParticle.gameObject, 3.5f);
 		}
 	}
 }
