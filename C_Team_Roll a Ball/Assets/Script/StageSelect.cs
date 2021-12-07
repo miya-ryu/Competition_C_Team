@@ -2,22 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class StageSelect : MonoBehaviour
 {
     int number = 0;
     private float Trigger;
+    public bool Select;
+    public bool DontDestroyEnabled = true;
 
     // 使用する AudioSource をアタッチ
     [SerializeField] private AudioSource audioSource = null;
 
     // 使用する AudioClip をアタッチ
     [SerializeField] public AudioClip Cursor1;
+    [SerializeField] public AudioClip Cursor2;
 
-    public bool stageflag = true;
+    public bool stageflag;
+    public bool audioflag;
 
     void Start()
     {
         stageflag = true;
+        audioflag = false;
         StartCoroutine("Call");
     }
 
@@ -62,33 +68,51 @@ public class StageSelect : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.JoystickButton1) || Input.GetKeyDown(KeyCode.JoystickButton2))
         {
-            stageflag = false;
-
-            if (stageflag == false)
+            if (audioflag)
             {
-                Call();
-                switch (number)
+                if (audioSource.isPlaying)
                 {
-                    case 0:
-                        SceneManager.LoadScene("Stage0");
-                        break;
-                    case 1:
-                        SceneManager.LoadScene("Stage1");
-                        break;
-                    case 2:
-                        SceneManager.LoadScene("Stage2");
-                        break;
-                    case 3:
-                        SceneManager.LoadScene("Stage3");
-                        break;
+                    stageflag = true;
                 }
-                stageflag = true;
+                else
+                {
+                    if (stageflag)
+                    {
+                        Call();
+                        audioflag = false;
+                    }
+                }
+            }
+            else
+            {
+                PlaySound();
+                stageflag = false;
             }
         }
     }
 
-    IEnumerator Call()
+    void Call()
     {
-        yield return new WaitForSeconds(0.6f);
+        switch (number)
+        {
+            case 0:
+                SceneManager.LoadScene("Stage0");
+                break;
+            case 1:
+                SceneManager.LoadScene("Stage1");
+                break;
+            case 2:
+                SceneManager.LoadScene("Stage2");
+                break;
+            case 3:
+                SceneManager.LoadScene("Stage3");
+                break;
+        }
+    }
+
+    void PlaySound()
+    {
+        audioflag = true;
+        audioSource.PlayOneShot(Cursor2, 0.2f); //音を鳴らす
     }
 }
