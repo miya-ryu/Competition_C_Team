@@ -2658,6 +2658,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25cb99e6e489fff45b7fd2dac3c8f57e, type: 3}
+--- !u!198 &1723020699 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 676977285099322824, guid: 25cb99e6e489fff45b7fd2dac3c8f57e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1723020698}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1748154011
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3234,6 +3240,7 @@ GameObject:
   - component: {fileID: 1973211374}
   - component: {fileID: 1973211376}
   - component: {fileID: 1973211375}
+  - component: {fileID: 1973211377}
   m_Layer: 0
   m_Name: Ball
   m_TagString: Ball
@@ -3587,6 +3594,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 1973211375}
   Floor: {fileID: 8300000, guid: 714c4d4649be5aa478d11a88338f537b, type: 3}
+--- !u!114 &1973211377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973211366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d248fb1d2d618534f9cd715e7d39ea4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1723020699}
 --- !u!1 &2018903438
 GameObject:
   m_ObjectHideFlags: 0
